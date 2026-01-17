@@ -1,0 +1,157 @@
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Bricolage Grotesque', Arial, sans-serif;
+  overflow-x: hidden;
+  padding-top: 90px;
+}
+
+img {
+  max-width: 100%;
+  max-height: 100%;
+  display: block;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 90px;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  z-index: 1000;
+}
+
+.logo {
+  width: 40%;
+  height: 100%;
+}
+
+.logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: left;
+}
+
+nav a {
+  margin-left: 30px;
+  text-decoration: none;
+  color: #000;
+  font-size: 24px;
+}
+
+.hero {
+  width: 100vw;
+  min-height: 80vh;
+  position: relative;
+}
+
+.hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-text {
+  position: absolute;
+  top: 40px;
+  right: 40px;
+  color: #fff;
+  font-family: 'Inknut Antiqua', serif;
+  font-size: 40px;
+  text-align: right;
+}
+
+.section-blue {
+  background: #09126a;
+  color: #fff;
+  padding: 80px 40px;
+  font-size: 30px;
+}
+
+.section-images {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  padding: 60px 40px;
+}
+
+.image-box {
+  aspect-ratio: 17 / 9;
+  position: relative;
+}
+
+.image-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.image-caption {
+  position: absolute;
+  color: #09126a;
+  font-size: 30px;
+  padding: 20px;
+}
+
+.image-caption.top-right {
+  top: 0;
+  right: 0;
+  text-align: right;
+}
+
+.image-caption.bottom-right {
+  bottom: 0;
+  right: 0;
+  text-align: right;
+}
+
+.scroll-section {
+  padding: 60px 40px;
+}
+
+.scroll-container {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+}
+
+.project-box {
+  min-width: 320px;
+  aspect-ratio: 17 / 9;
+  border: 1px solid #000;
+}
+
+.project-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.footer {
+  background: #09126a;
+  color: #fff;
+  padding: 40px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer small {
+  font-family: 'Times New Roman', serif;
+  font-size: 14px;
+}
