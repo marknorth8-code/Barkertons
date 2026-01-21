@@ -43,6 +43,16 @@ nav a{margin-left:30px;font-size:24px;color:#000;text-decoration:none}
   }
 
 }
+@media (max-width:768px){
+
+  .hero-text{
+    top:auto;
+    bottom:20px;
+    transform:none;
+    padding:0 20px;
+  }
+
+}
 
 /* SECTION 2 */
 .section-blue{
