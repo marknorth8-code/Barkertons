@@ -26,6 +26,23 @@ nav a{margin-left:30px;font-size:24px;color:#000;text-decoration:none}
   font-family:'Inknut Antiqua',serif;
   font-size:40px;color:#fff;text-align:right;
 }
+/* MOBILE HERO FIX */
+@media (max-width:768px){
+
+  .hero img{
+    height:260px;          /* compress image */
+  }
+
+  .hero h1{
+    font-size:26px;        /* shrink headline */
+    line-height:1.2;
+  }
+
+  .hero p{
+    font-size:16px;        /* shrink subtext */
+  }
+
+}
 
 /* SECTION 2 */
 .section-blue{
@@ -46,7 +63,7 @@ nav a{margin-left:30px;font-size:24px;color:#000;text-decoration:none}
 }
 
 /* SECTION 4 CAROUSEL */
-.carousel-section{padding:40px 40px}
+.carousel-section{padding:20px 40px}
 .carousel-wrapper{position:relative;overflow:hidden}
 .carousel-track{
   display:flex;gap:20px;
@@ -74,7 +91,7 @@ nav a{margin-left:30px;font-size:24px;color:#000;text-decoration:none}
 /* SECTION 5 */
 .section-people{
   background:#09126a;color:#fff;
-  padding:40px 40px;
+  padding:20px 40px;
 }
 .section-people h3{
   font-family:'Bricolage Grotesque',Arial,sans-serif;
@@ -91,7 +108,7 @@ nav a{margin-left:30px;font-size:24px;color:#000;text-decoration:none}
 
 /* SECTION 6 */
 .section-partner{
-  padding:60px 40px;
+  padding:40px 40px;
   font-size:20px;
   text-align:center;
 }
