@@ -82,8 +82,8 @@ nav a{margin-left:30px;font-size:24px;color:#000;text-decoration:none}
 }
 .section-people img{
   display:block;
-  width:1200px;max-width:100%;
-  aspect-ratio:1200/450;
+  width:1000px;max-width:100%;
+  aspect-ratio:1000/450;
   margin:40px auto 0;
   border:1px solid #000;
   object-fit:cover;
