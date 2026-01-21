@@ -59,7 +59,7 @@ nav a{margin-left:30px;font-size:24px;color:#000;text-decoration:none}
   .hero{
     margin-bottom:0;
     padding-bottom:0;
-    height:auto
+    height:auto;
     min-height:unset;
   }
 
