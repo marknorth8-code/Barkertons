@@ -46,7 +46,7 @@ nav a{margin-left:30px;font-size:24px;color:#000;text-decoration:none}
 }
 
 /* SECTION 4 CAROUSEL */
-.carousel-section{padding:60px 40px}
+.carousel-section{padding:40px 40px}
 .carousel-wrapper{position:relative;overflow:hidden}
 .carousel-track{
   display:flex;gap:20px;
@@ -55,7 +55,7 @@ nav a{margin-left:30px;font-size:24px;color:#000;text-decoration:none}
 }
 .carousel-track:active{cursor:grabbing}
 .project-box{
-  min-width:500px;
+  min-width:400px;
   aspect-ratio:16/6;
   border:1px solid #000;
 }
@@ -91,7 +91,7 @@ nav a{margin-left:30px;font-size:24px;color:#000;text-decoration:none}
 
 /* SECTION 6 */
 .section-partner{
-  padding:80px 40px;
+  padding:60px 40px;
   font-size:20px;
   text-align:center;
 }
