@@ -187,3 +187,11 @@ nav a{margin-left:30px;font-size:24px;color:#000;text-decoration:none}
   }
 
 }
+/* MOBILE SECTION 3 STACK */
+@media (max-width:768px){
+
+  .tiles{
+    grid-template-columns:1fr;
+  }
+
+}
