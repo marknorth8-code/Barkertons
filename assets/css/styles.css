@@ -104,3 +104,40 @@ nav a{margin-left:30px;font-size:24px;color:#000;text-decoration:none}
 .footer small{
   font-family:'Times New Roman',serif;font-size:14px;
 }
+/* DESKTOP */
+.hamburger{
+  display:none;
+}
+
+/* MOBILE HEADER / HAMBURGER */
+@media (max-width:768px){
+
+  nav{
+    display:none;
+  }
+
+  .hamburger{
+    display:block;
+    font-size:28px;
+    background:none;
+    border:none;
+    cursor:pointer;
+  }
+
+  nav.active{
+    display:block;
+    position:absolute;
+    top:90px;
+    left:0;
+    width:100%;
+    background:#fff;
+    padding:20px 40px;
+  }
+
+  nav a{
+    display:block;
+    margin:15px 0;
+    font-size:22px;
+  }
+
+}
