@@ -37,7 +37,7 @@ nav a{margin-left:30px;font-size:24px;color:#000;text-decoration:none}
 @media (max-width:768px){
 
   .hero{
-    position:static;
+    position:absolute;
     min-height:unset;
     height:auto;
     margin-bottom:0;
