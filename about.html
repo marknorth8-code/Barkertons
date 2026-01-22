@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600&family=Inknut+Antiqua:wght@400;600&display=swap" rel="stylesheet">
 
   <!-- Re‑use existing global CSS -->
-  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
 
   <style>
     /* ABOUT PAGE ONLY – scoped styles */
@@ -115,14 +115,22 @@
 </head>
 <body>
 
-  <header>
-    <div class="logo"><a href="index.html"><img src="images/logo.png" alt="Barkertons Property"></a></div>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="about.html" class="active">About</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </header>
+<header>
+  <div class="logo">
+    <a href="index.html">
+      <img src="images/logo.png" alt="Barkertons Property">
+    </a>
+  </div>
+
+  <button class="hamburger" aria-label="menu">☰</button>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html" class="active">About</a>
+    <a href="contact.html">Contact</a>
+    <button class="hamburger" aria-label="Menu">☰</button>
+  </nav>
+</header>
 
   <section class="about-hero">
     <h1>About Us</h1>
