@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>People | Barkertons Property</title>
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inknut+Antiqua&family=Bricolage+Grotesque:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+
+/* GLOBAL */
+*,
+*::before,
+*::after{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  font-family:'Bricolage Grotesque',Arial,sans-serif;
+  overflow-x:hidden;
+  padding-top:90px;
+}
+img{display:block;max-width:100%}
+
+/* HEADER (MATCH YOUR EXISTING HEADER STYLING IF DIFFERENT) */
+header{
+  position:fixed;top:0;width:100%;height:90px;
+  background:#fff;display:flex;align-items:center;
+  justify-content:space-between;padding:0 40px;z-index:1000;
+}
+
+/* =========================
+   SECTION 1 – HERO IMAGE
+========================= */
+.people-hero{
+  position:relative;
+  width:100%;
+  height:60vh;
+}
+.people-hero img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+.people-hero h1{
+  position:absolute;
+  left:40px;
+  top:50%;
+  transform:translateY(-50%);
+  font-family:'Inknut Antiqua',serif;
+  font-size:40px;
+  color:#fff;
+  margin:0;
+}
+
+/* =========================
+   SECTION 2 – TEXT
+========================= */
+.people-intro{
+  background:#fff;
+  padding:40px 40px 10px 40px;
+}
+.people-intro p{
+  font-size:22px;
+  color:#09126a;
+  margin:0;
+  max-width:900px;
+}
+
+/* =========================
+   SECTION 3 – NETWORK GRID
+========================= */
+.people-network{
+  background:#09126a;
+  padding:50px 40px 70px 40px;
+}
+
+/* Large box */
+.network-large-box{
+  width:100%;
+  max-width:900px;
+  margin:0 auto 40px auto;
+  background:#fff;
+  border:1px solid #000;
+  aspect-ratio:17 / 9;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+}
+.network-large-box a{
+  text-decoration:none;
+  color:#09126a;
+  font-size:20px;
+  font-weight:500;
+}
+
+/* Grid of 12 boxes */
+.network-grid{
+  max-width:1100px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:repeat(4, 1fr);
+  gap:20px;
+}
+
+/* Individual box */
+.network-box{
+  background:#fff;
+  border:1px solid #000;
+  aspect-ratio:17 / 9;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+}
+.network-box img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width:900px){
+  .network-grid{
+    grid-template-columns:repeat(2, 1fr);
+  }
+}
+
+@media (max-width:500px){
+  .network-grid{
+    grid-template-columns:1fr;
+  }
+  .people-hero h1{
+    font-size:32px;
+    left:20px;
+  }
+  .people-intro{
+    padding:30px 20px;
+  }
+  .people-network{
+    padding:40px 20px 60px 20px;
+  }
+}
+
+</style>
+</head>
+<body>
+
+<!-- HEADER (COPY YOUR REAL NAV FROM HOME/ABOUT IF REQUIRED) -->
+<header>
+  <div class="logo">BARKERTONS</div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="people.html">People</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<!-- SECTION 1 -->
+<section class="people-hero">
+  <img src="images/network.jpg" alt="Our Network">
+  <h1>Our Network</h1>
+</section>
+
+<!-- SECTION 2 -->
+<section class="people-intro">
+  <p>
+    As RICS-accredited Chartered Surveyors, we bring international expertise plus a hands on background to deliver practical, full-lifecycle solutions for investors and occupiers. Learn more and view our profiles:
+  </p>
+</section>
+
+<!-- SECTION 3 -->
+<section class="people-network">
+
+  <!-- Large box with PDF link -->
+  <div class="network-large-box">
+    <a href="pdf/network-profile.pdf" target="_blank">View Network PDF</a>
+  </div>
+
+  <!-- Grid of 12 boxes -->
+  <div class="network-grid">
+    <div class="network-box"><img src="images/network-1.jpg" alt="network-1"></div>
+    <div class="network-box"><img src="images/network-2.jpg" alt="network-2"></div>
+    <div class="network-box"><img src="images/network-3.jpg" alt="network-3"></div>
+    <div class="network-box"><img src="images/network-4.jpg" alt="network-4"></div>
+
+    <div class="network-box"><img src="images/network-5.jpg" alt="network-5"></div>
+    <div class="network-box"><img src="images/network-6.jpg" alt="network-6"></div>
+    <div class="network-box"><img src="images/network-7.jpg" alt="network-7"></div>
+    <div class="network-box"><img src="images/network-8.jpg" alt="network-8"></div>
+
+    <div class="network-box"><img src="images/network-9.jpg" alt="network-9"></div>
+    <div class="network-box"><img src="images/network-10.jpg" alt="network-10"></div>
+    <div class="network-box"><img src="images/network-11.jpg" alt="network-11"></div>
+    <div class="network-box"><img src="images/network-12.jpg" alt="network-12"></div>
+  </div>
+
+</section>
+
+<!-- FOOTER (COPY YOUR EXISTING FOOTER HERE) -->
+<footer>
+  <p>Phone: +44 7470 292 634</p>
+  <p>Email: barkertons@outlook.com</p>
+</footer>
+
+</body>
+</html>
