@@ -93,7 +93,7 @@ nav a{margin-left:30px;font-size:24px;color:#000;text-decoration:none}
 .carousel-wrapper{position:relative;overflow:hidden}
 .carousel-track{
   display:flex;gap:20px;
-  gap: 40px;
+  gap: 50px;
   transition:transform .4s ease;
   cursor:grab;
 }
