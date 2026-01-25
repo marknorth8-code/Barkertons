@@ -4,80 +4,49 @@
   <meta charset="UTF-8">
   <title>Contact | Barkertons</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- GOOGLE FONTS -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@400;600&family=Bricolage+Grotesque:wght@300;400;500&display=swap" rel="stylesheet">
-
-  <!-- MAIN SITE CSS -->
   <link rel="stylesheet" href="assets/css/styles.css">
 
-  <!-- CONTACT PAGE ONLY STYLES -->
   <style>
-    body{
-      padding-top: 90;
-    }
+    body { padding-top: 90px; }
 
-    /* SECTION 1 – PLACEHOLDER */
-    .contact-hero{
-      height: 360px;
-      background: #ffffff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Contact | Barkertons</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@400;600&family=Bricolage+Grotesque:wght@300;400;500&display=swap" rel="stylesheet">
-
-  <!-- Main site CSS -->
-  <link rel="stylesheet" href="assets/css/styles.css">
-
-  <!-- Contact page styles -->
-  <style>
-    body{
-      padding-top: 90px;
-    }
-
-    /* ===== CONTACT SECTION ===== */
-    .contact-section{
+    /* Centering the entire section content */
+    .contact-section {
       position: relative;
       background: url("images/contact.jpg") center / cover no-repeat;
-      padding: 80px 40px;
-      min-height: 600px;
+      padding: 80px 20px;
+      min-height: 80vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center; /* Horizontal center */
+      justify-content: center; /* Vertical center */
     }
 
-    .contact-title{
-      font-family: 'Bricolage Grotesque', Arial, sans-serif;
+    .contact-title {
+      font-family: 'Bricolage Grotesque', sans-serif;
       font-size: 22px;
       color: #09126a;
       margin-bottom: 20px;
+      text-align: center; /* Center text */
     }
 
-    .contact-form-wrapper{
+    .contact-form-wrapper {
+      width: 100%;
       max-width: 900px;
       border: 2px solid #000;
-      padding: 30px;
-      background: rgba(255,255,255,0.85);
+      padding: 40px;
+      background: rgba(255,255,255,0.9);
+      box-sizing: border-box;
     }
 
-    form{
+    form {
       display: grid;
       grid-template-columns: 1fr 1fr;
       column-gap: 40px;
       row-gap: 30px;
     }
 
-    .form-field{
+    .form-field {
       display: flex;
       flex-direction: column;
       font-family: "Times New Roman", serif;
@@ -85,166 +54,77 @@
       color: #808080;
     }
 
-    .form-field input,
-    .form-field textarea{
+    .form-field input, .form-field textarea {
       border: none;
       border-bottom: 2px solid #000;
       background: transparent;
-      font-family: "Times New Roman", serif;
-      font-size: 16px;
-      padding: 6px 0;
+      padding: 8px 0;
       outline: none;
     }
 
-    .form-field textarea{
-      resize: none;
-      height: 120px;
-      border: 2px solid #000;
-      padding: 10px;
-    }
+    .full-width { grid-column: 1 / -1; }
 
-    .full-width{
-      grid-column: 1 / -1;
-    }
-
-    .submit-wrapper{
-      grid-column: 2 / 3;
+    .submit-wrapper {
+      grid-column: 1 / -1; /* Centered button */
       display: flex;
-      justify-content: flex-end;
-      margin-top: 10px;
+      justify-content: center; 
+      margin-top: 20px;
     }
 
-    button{
+    button {
       background: #7B014C;
       color: #fff;
       border: none;
-      padding: 8px 20px;
+      padding: 12px 40px;
       font-family: 'Inknut Antiqua', serif;
-      font-size: 12px;
+      font-size: 14px;
       cursor: pointer;
+      transition: opacity 0.3s;
     }
 
-    .success-message{
-      font-family: 'Bricolage Grotesque', Arial, sans-serif;
-      font-size: 18px;
-      color: #09126a;
-    }
+    button:hover { opacity: 0.9; }
 
-    /* Mobile */
-    @media (max-width: 768px){
-      form{
-        grid-template-columns: 1fr;
-      }
-
-      .submit-wrapper{
-        grid-column: 1 / -1;
-      }
+    @media (max-width: 768px) {
+      form { grid-template-columns: 1fr; }
+      .contact-form-wrapper { padding: 20px; }
     }
   </style>
 </head>
-
 <body>
-
   <div id="header"></div>
 
-  <!-- CONTACT SECTION -->
   <section class="contact-section">
-
     <div class="contact-title">Get in Touch:</div>
-
     <div class="contact-form-wrapper" id="form-container">
-
-      <form id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-
+      <form id="contact-form" action="https://formspree.io" method="POST">
         <div class="form-field">
           <label>First Name*</label>
           <input type="text" name="first-name" required>
         </div>
-
         <div class="form-field">
           <label>Last Name*</label>
           <input type="text" name="last-name" required>
         </div>
-
         <div class="form-field">
           <label>Phone Number*</label>
           <input type="tel" name="phone" required>
         </div>
-
         <div class="form-field">
           <label>Email*</label>
           <input type="email" name="email" required>
         </div>
-
         <div class="form-field full-width">
           <label>Message*</label>
-          <textarea name="message" required></textarea>
+          <textarea name="message" required style="border: 1px solid #000; height: 100px; padding: 10px;"></textarea>
         </div>
-
         <div class="submit-wrapper">
           <button type="submit">SUBMIT</button>
         </div>
-
       </form>
-
     </div>
-
   </section>
 
   <div id="footer"></div>
-
   <script src="assets/js/main.js"></script>
-
-  <!-- Formspree success replacement -->
-  <script>
-    const form = document.getElementById('contact-form');
-    const container = document.getElementById('form-container');
-
-    form.addEventListener('submit', function(e){
-      e.preventDefault();
-
-      fetch(form.action, {
-        method: form.method,
-        body: new FormData(form),
-        headers: { 'Accept': 'application/json' }
-      }).then(response => {
-        if(response.ok){
-          container.innerHTML = `
-            <div class="success-message">
-              Your form has been submitted and we will be in touch.
-            </div>
-          `;
-        }
-      });
-    });
-  </script>
-
-</body>
-</html>
-
-    @media (max-width: 768px){
-      .contact-hero{
-        height: 280px;
-      }
-    }
-  </style>
-</head>
-
-<body>
-
-  <!-- GLOBAL HEADER -->
-  <div id="header"></div>
-
-  <!-- SECTION 1 (INTENTIONALLY EMPTY) -->
-  <section class="contact-hero">
-    <!-- Contact content to be added later -->
-  </section>
-
-  <!-- GLOBAL FOOTER -->
-  <div id="footer"></div>
-
-  <!-- MAIN JS -->
-  <script src="assets/js/main.js"></script>
-
 </body>
 </html>
