@@ -68,11 +68,9 @@ if (track && items.length && left && right) {
 }
 
 /* ================= MOBILE NAV ================= */
-const hamburger = document.querySelector('.hamburger');
-const nav = document.querySelector('nav');
-
-if (hamburger && nav) {
-  hamburger.addEventListener('click', () => {
-    nav.classList.toggle('active');
-  });
-}
+document.addEventListener('click', function (e) {
+  if (e.target.classList.contains('hamburger')) {
+    const nav = document.querySelector('nav');
+    if (nav) nav.classList.toggle('active');
+  }
+});
