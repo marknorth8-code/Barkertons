@@ -23,24 +23,27 @@ body{
 /* ========= SECTION 1 – HERO ========= */
 .people-hero{
   position: relative;
-  height: 360px;
+  width: 100%;
+  aspect-ratio: 16 / 6;     /* controls height cleanly */
   background:
-    linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+    linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)),
     url("images/people.jpg") center / contain no-repeat;
-  background-color: #09126a; /* brand-safe letterbox */
-}
-
+  background-color: #09126a;
   display: flex;
   align-items: center;
   padding-left: 60px;
 }
 
+/* Ensure text is always on top */
 .people-hero h1{
+  position: relative;
+  z-index: 2;
   font-family: 'Inknut Antiqua', serif;
   font-size: 40px;
   color: #ffffff;
   margin: 0;
 }
+
 
 @media (max-width: 768px){
   .people-hero{
