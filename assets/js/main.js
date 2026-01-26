@@ -1,8 +1,6 @@
 /* ================= FOOTER YEAR ================= */
 const yearEl = document.getElementById('year');
-if (yearEl) {
-  yearEl.textContent = new Date().getFullYear();
-}
+if (yearEl) yearEl.textContent = new Date().getFullYear();
 
 /* ================= HEADER / FOOTER LOAD ================= */
 document.addEventListener("DOMContentLoaded", () => {
@@ -12,7 +10,8 @@ document.addEventListener("DOMContentLoaded", () => {
   if (header) {
     fetch("header.html")
       .then(res => res.text())
-      .then(html => header.innerHTML = html);
+      .then(html => header.innerHTML = html)
+      .then(() => initMobileNav()); // init hamburger after load
   }
 
   if (footer) {
@@ -23,80 +22,68 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 /* ================= MOBILE NAV ================= */
-document.addEventListener('click', function (e) {
-  if (e.target.classList.contains('hamburger')) {
+function initMobileNav() {
+  const hamburger = document.querySelector('.hamburger');
+  if (!hamburger) return;
+  hamburger.addEventListener('click', () => {
     const nav = document.querySelector('nav');
     if (nav) nav.classList.toggle('active');
-  }
-});
-
-window.addEventListener('load', () => {
-  const carousel = document.querySelector('.home-carousel');
-  if (!carousel) return;
-
-  const track = carousel.querySelector('.carousel-track');
-  const items = carousel.querySelectorAll('.project-box');
-  const left = carousel.querySelector('.carousel-arrow.left');
-  const right = carousel.querySelector('.carousel-arrow.right');
-  const wrapper = carousel.querySelector('.carousel-wrapper');
-
-  if (!track || items.length === 0 || !left || !right || !wrapper) {
-    console.warn('Home carousel elements not found');
-    return;
-  }
-
-  // Wait for images inside carousel to load
-  let imagesLoaded = 0;
-  items.forEach(item => {
-    const img = item.querySelector('img');
-    if (img.complete) imagesLoaded++;
-    else img.addEventListener('load', () => {
-      imagesLoaded++;
-      if (imagesLoaded === items.length) initCarousel();
-    });
   });
+}
 
-  if (imagesLoaded === items.length) initCarousel();
+/* ================= HOME PAGE CAROUSEL ================= */
+window.addEventListener('load', () => { // wait for images
+  const track = document.querySelector('.carousel-track');
+  const items = document.querySelectorAll('.project-box');
+  const left = document.querySelector('.carousel-arrow.left');
+  const right = document.querySelector('.carousel-arrow.right');
+  const wrapper = document.querySelector('.carousel-wrapper');
 
-  function initCarousel() {
-    let currentTranslate = 0;
-    const gap = parseInt(getComputedStyle(track).gap) || 40;
+  if (!track || items.length === 0 || !left || !right || !wrapper) return;
 
-    function getItemWidth() { return items[0].getBoundingClientRect().width; }
-    function getMaxScroll() {
-      const itemWidth = getItemWidth();
-      const totalWidth = items.length * (itemWidth + gap) - gap;
-      const wrapperWidth = wrapper.getBoundingClientRect().width;
-      return Math.max(totalWidth - wrapperWidth, 0);
-    }
+  let currentTranslate = 0;
+  const gap = parseInt(getComputedStyle(track).gap) || 40;
 
-    function updateTranslate() {
-      const maxScroll = getMaxScroll();
-      if (currentTranslate > 0) currentTranslate = 0;
-      if (currentTranslate < -maxScroll) currentTranslate = -maxScroll;
-      track.style.transform = `translateX(${currentTranslate}px)`;
-    }
-
-    left.addEventListener('click', () => { currentTranslate += getItemWidth() + gap; updateTranslate(); });
-    right.addEventListener('click', () => { currentTranslate -= getItemWidth() + gap; updateTranslate(); });
-
-    // Drag support
-    let dragging = false, startX = 0, prevTranslate = 0;
-    track.addEventListener('mousedown', e => { dragging = true; startX = e.pageX; prevTranslate = currentTranslate; });
-    window.addEventListener('mouseup', () => { dragging = false; });
-    window.addEventListener('mousemove', e => {
-      if (!dragging) return;
-      currentTranslate = prevTranslate + (e.pageX - startX);
-      updateTranslate();
-    });
-
-    window.addEventListener('resize', updateTranslate);
-
-    updateTranslate();
+  function getItemWidth() { return items[0].getBoundingClientRect().width; }
+  function getMaxScroll() {
+    const itemWidth = getItemWidth();
+    const totalWidth = items.length * (itemWidth + gap) - gap;
+    const wrapperWidth = wrapper.getBoundingClientRect().width;
+    return Math.max(totalWidth - wrapperWidth, 0);
   }
-});
+  function updateTranslate() {
+    const maxScroll = getMaxScroll();
+    if (currentTranslate > 0) currentTranslate = 0;
+    if (currentTranslate < -maxScroll) currentTranslate = -maxScroll;
+    track.style.transform = `translateX(${currentTranslate}px)`;
+  }
 
-  /* ---------- Recalculate on Resize ---------- */
+  // Arrow click
+  left.addEventListener('click', () => { currentTranslate += getItemWidth() + gap; updateTranslate(); });
+  right.addEventListener('click', () => { currentTranslate -= getItemWidth() + gap; updateTranslate(); });
+
+  // Arrow hold scrolling
+  let scrollInterval = null;
+  function startScroll(direction) {
+    stopScroll();
+    scrollInterval = setInterval(() => {
+      currentTranslate -= direction * 10;
+      updateTranslate();
+    }, 16);
+  }
+  function stopScroll() { clearInterval(scrollInterval); scrollInterval = null; }
+
+  left.addEventListener('mousedown', () => startScroll(-1));
+  right.addEventListener('mousedown', () => startScroll(1));
+  window.addEventListener('mouseup', stopScroll);
+  window.addEventListener('mouseleave', stopScroll);
+
+  // Drag
+  let dragging = false, startX = 0, prevTranslate = 0;
+  track.addEventListener('mousedown', e => { dragging = true; startX = e.pageX; prevTranslate = currentTranslate; stopScroll(); });
+  window.addEventListener('mouseup', () => { dragging = false; });
+  window.addEventListener('mousemove', e => { if (!dragging) return; currentTranslate = prevTranslate + (e.pageX - startX); updateTranslate(); });
+
   window.addEventListener('resize', updateTranslate);
 
   updateTranslate();
