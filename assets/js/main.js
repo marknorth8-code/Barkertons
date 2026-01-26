@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
     fetch("header.html")
       .then(res => res.text())
       .then(html => header.innerHTML = html)
-      .then(() => initMobileNav()); // init hamburger after load
+      .then(() => initMobileNav()); // init hamburger after header loads
   }
 
   if (footer) {
@@ -24,20 +24,20 @@ document.addEventListener("DOMContentLoaded", () => {
 /* ================= MOBILE NAV ================= */
 function initMobileNav() {
   const hamburger = document.querySelector('.hamburger');
-  if (!hamburger) return;
+  const nav = document.querySelector('nav');
+  if (!hamburger || !nav) return;
   hamburger.addEventListener('click', () => {
-    const nav = document.querySelector('nav');
-    if (nav) nav.classList.toggle('active');
+    nav.classList.toggle('active');
   });
 }
 
 /* ================= HOME PAGE CAROUSEL ================= */
-window.addEventListener('load', () => { // wait for images
-  const track = document.querySelector('.carousel-track');
-  const items = document.querySelectorAll('.project-box');
-  const left = document.querySelector('.carousel-arrow.left');
-  const right = document.querySelector('.carousel-arrow.right');
-  const wrapper = document.querySelector('.carousel-wrapper');
+window.addEventListener('load', () => { // wait for images to load
+  const track = document.querySelector('.home-carousel .carousel-track');
+  const items = document.querySelectorAll('.home-carousel .project-box');
+  const left = document.querySelector('.home-carousel .carousel-arrow.left');
+  const right = document.querySelector('.home-carousel .carousel-arrow.right');
+  const wrapper = document.querySelector('.home-carousel .carousel-wrapper');
 
   if (!track || items.length === 0 || !left || !right || !wrapper) return;
 
@@ -45,12 +45,14 @@ window.addEventListener('load', () => { // wait for images
   const gap = parseInt(getComputedStyle(track).gap) || 40;
 
   function getItemWidth() { return items[0].getBoundingClientRect().width; }
+
   function getMaxScroll() {
     const itemWidth = getItemWidth();
     const totalWidth = items.length * (itemWidth + gap) - gap;
     const wrapperWidth = wrapper.getBoundingClientRect().width;
     return Math.max(totalWidth - wrapperWidth, 0);
   }
+
   function updateTranslate() {
     const maxScroll = getMaxScroll();
     if (currentTranslate > 0) currentTranslate = 0;
@@ -62,7 +64,7 @@ window.addEventListener('load', () => { // wait for images
   left.addEventListener('click', () => { currentTranslate += getItemWidth() + gap; updateTranslate(); });
   right.addEventListener('click', () => { currentTranslate -= getItemWidth() + gap; updateTranslate(); });
 
-  // Arrow hold scrolling
+  // Continuous arrow hold
   let scrollInterval = null;
   function startScroll(direction) {
     stopScroll();
@@ -78,12 +80,22 @@ window.addEventListener('load', () => { // wait for images
   window.addEventListener('mouseup', stopScroll);
   window.addEventListener('mouseleave', stopScroll);
 
-  // Drag
+  // Drag support
   let dragging = false, startX = 0, prevTranslate = 0;
-  track.addEventListener('mousedown', e => { dragging = true; startX = e.pageX; prevTranslate = currentTranslate; stopScroll(); });
+  track.addEventListener('mousedown', e => {
+    dragging = true;
+    startX = e.pageX;
+    prevTranslate = currentTranslate;
+    stopScroll();
+  });
   window.addEventListener('mouseup', () => { dragging = false; });
-  window.addEventListener('mousemove', e => { if (!dragging) return; currentTranslate = prevTranslate + (e.pageX - startX); updateTranslate(); });
+  window.addEventListener('mousemove', e => {
+    if (!dragging) return;
+    currentTranslate = prevTranslate + (e.pageX - startX);
+    updateTranslate();
+  });
 
+  // Recalculate on resize
   window.addEventListener('resize', updateTranslate);
 
   updateTranslate();
