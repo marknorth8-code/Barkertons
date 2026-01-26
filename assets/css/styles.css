@@ -115,6 +115,13 @@ nav a{margin-left:30px;font-size:24px;color:#000;text-decoration:none}
   cursor:pointer;
   z-index:100;
 }
+.carousel-wrapper{
+  position:relative;
+  overflow:hidden;
+  max-width: calc(100% - 120px);  /* creates space for arrows */
+  margin: 0 auto;                 /* centers the carousel */
+}
+
 .carousel-arrow.left{
   left:-50px;
 }
