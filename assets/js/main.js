@@ -8,14 +8,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const footer = document.getElementById("footer");
 
   if (header) {
-   fetch("/header.html")
+    fetch("/header.html")           // root folder
       .then(res => res.text())
       .then(html => header.innerHTML = html)
       .then(() => initMobileNav()); // init hamburger after header loads
   }
 
   if (footer) {
-  fetch("/footer.html")
+    fetch("/footer.html")           // root folder
       .then(res => res.text())
       .then(html => footer.innerHTML = html);
   }
@@ -26,13 +26,14 @@ function initMobileNav() {
   const hamburger = document.querySelector('.hamburger');
   const nav = document.querySelector('nav');
   if (!hamburger || !nav) return;
+
   hamburger.addEventListener('click', () => {
     nav.classList.toggle('active');
   });
 }
 
 /* ================= HOME PAGE CAROUSEL ================= */
-window.addEventListener('load', () => { // wait for images to load
+window.addEventListener('load', () => {
   const track = document.querySelector('.home-carousel .carousel-track');
   const items = document.querySelectorAll('.home-carousel .project-box');
   const left = document.querySelector('.home-carousel .carousel-arrow.left');
@@ -44,7 +45,9 @@ window.addEventListener('load', () => { // wait for images to load
   let currentTranslate = 0;
   const gap = parseInt(getComputedStyle(track).gap) || 40;
 
-  function getItemWidth() { return items[0].getBoundingClientRect().width; }
+  function getItemWidth() {
+    return items[0].getBoundingClientRect().width;
+  }
 
   function getMaxScroll() {
     const itemWidth = getItemWidth();
@@ -61,8 +64,14 @@ window.addEventListener('load', () => { // wait for images to load
   }
 
   // Arrow click
-  left.addEventListener('click', () => { currentTranslate += getItemWidth() + gap; updateTranslate(); });
-  right.addEventListener('click', () => { currentTranslate -= getItemWidth() + gap; updateTranslate(); });
+  left.addEventListener('click', () => {
+    currentTranslate += getItemWidth() + gap;
+    updateTranslate();
+  });
+  right.addEventListener('click', () => {
+    currentTranslate -= getItemWidth() + gap;
+    updateTranslate();
+  });
 
   // Continuous arrow hold
   let scrollInterval = null;
@@ -73,7 +82,10 @@ window.addEventListener('load', () => { // wait for images to load
       updateTranslate();
     }, 16);
   }
-  function stopScroll() { clearInterval(scrollInterval); scrollInterval = null; }
+  function stopScroll() {
+    clearInterval(scrollInterval);
+    scrollInterval = null;
+  }
 
   left.addEventListener('mousedown', () => startScroll(-1));
   right.addEventListener('mousedown', () => startScroll(1));
@@ -81,14 +93,18 @@ window.addEventListener('load', () => { // wait for images to load
   window.addEventListener('mouseleave', stopScroll);
 
   // Drag support
-  let dragging = false, startX = 0, prevTranslate = 0;
+  let dragging = false,
+    startX = 0,
+    prevTranslate = 0;
   track.addEventListener('mousedown', e => {
     dragging = true;
     startX = e.pageX;
     prevTranslate = currentTranslate;
     stopScroll();
   });
-  window.addEventListener('mouseup', () => { dragging = false; });
+  window.addEventListener('mouseup', () => {
+    dragging = false;
+  });
   window.addEventListener('mousemove', e => {
     if (!dragging) return;
     currentTranslate = prevTranslate + (e.pageX - startX);
