@@ -123,6 +123,32 @@ nav a{margin-left:30px;font-size:24px;color:#000;text-decoration:none}
 .carousel-arrow:hover{
   background: #0b158a;          /* subtle hover */
 }
+/* 1. Define uniform card size */
+.insight-card {
+  background: #f5f5f5;
+  padding: 20px;
+  transition: all 0.3s ease;
+  width: 320px;       /* Fixed width */
+  min-height: 450px;  /* Fixed minimum height for the whole card */
+  display: flex;
+  flex-direction: column;
+}
+
+/* 2. Crop images to fit a specific shape */
+.insight-card img {
+  width: 100%;
+  height: 200px;      /* Fixed height for the image area */
+  object-fit: cover;  /* This crops different-sized images to fit */
+  object-position: center; /* Ensures the crop happens from the middle */
+}
+
+/* 3. Keep text area consistent */
+.summary {
+  font-size: 14px;
+  color: #000;
+  flex-grow: 1;       /* Pushes footer/date to the bottom if text is short */
+  line-height: 1.6;
+}
 
 /* SECTION 5 */
 .section-people{
