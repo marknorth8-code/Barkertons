@@ -37,7 +37,7 @@ header {
   margin: 0 0 10px 0;
 }
 .insights-page {
-  padding-top: 80px; /* 90px header + small breathing room */
+  padding-top: 40px; /* 90px header + small breathing room */
 }
 
 .carousel {
