@@ -103,14 +103,14 @@ nav a{margin-left:30px;font-size:24px;color:#000;text-decoration:none}
 
 /* Track that holds all cards */
 .carousel-wrapper {
-  width: 80%;
+  width: 70%;
   margin: 00 auto;
   overflow: hidden;
 }
 
 .carousel-track {
   display: flex;
-  gap: 80px;
+  gap: 100px;
   transition: transform 0.4s ease;
 }
 
