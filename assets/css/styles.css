@@ -123,31 +123,34 @@ nav a{margin-left:30px;font-size:24px;color:#000;text-decoration:none}
 .carousel-arrow:hover{
   background: #0b158a;          /* subtle hover */
 }
-/* 1. Define uniform card size */
+/* SECTION 4 CAROUSEL – TIDYED CARDS */
 .insight-card {
   background: #f5f5f5;
-  padding: 20px;
-  transition: all 0.3s ease;
-  width: 320px;       /* Fixed width */
-  min-height: 450px;  /* Fixed minimum height for the whole card */
+  width: 320px;           /* fixed width for uniformity */
+  height: 450px;          /* fixed height for all cards */
   display: flex;
   flex-direction: column;
+  overflow: hidden;       /* ensures images don’t overflow */
+  border-radius: 8px;     /* optional: smooth corners */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1); /* optional subtle shadow */
 }
 
-/* 2. Crop images to fit a specific shape */
 .insight-card img {
   width: 100%;
-  height: 200px;      /* Fixed height for the image area */
-  object-fit: cover;  /* This crops different-sized images to fit */
-  object-position: center; /* Ensures the crop happens from the middle */
+  height: 60%;            /* top portion of the card */
+  object-fit: cover;      /* image fills the box fully and crops if needed */
+  flex-shrink: 0;         /* prevents image from shrinking */
 }
 
-/* 3. Keep text area consistent */
-.summary {
+.insight-card .summary {
+  padding: 10px 15px;
   font-size: 14px;
   color: #000;
-  flex-grow: 1;       /* Pushes footer/date to the bottom if text is short */
   line-height: 1.6;
+  flex-grow: 1;           /* fills remaining space */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* keeps footer/date at bottom */
 }
 
 /* SECTION 5 */
