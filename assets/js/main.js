@@ -29,34 +29,29 @@ const items = document.querySelectorAll('.project-box');
 const left = document.querySelector('.carousel-arrow.left');
 const right = document.querySelector('.carousel-arrow.right');
 
-if (track && items.length && left && right) {
+if (track && items.length && left && right && window.innerWidth > 768) {
   let index = 0;
   let currentTranslate = 0;
-  const gap = 40; // same as CSS
+  const gap = 40;
 
   function update() {
-  const visibleCards = Math.floor(track.offsetWidth / items[0].offsetWidth);
-  const maxIndex = items.length - visibleCards;
-  
-  // Clamp index so carousel doesn't scroll too far
-  if (index > maxIndex) index = maxIndex;
-  if (index < 0) index = 0;
+    const visibleCards = Math.floor(track.offsetWidth / items[0].offsetWidth);
+    const maxIndex = items.length - visibleCards;
+    if (index > maxIndex) index = maxIndex;
+    if (index < 0) index = 0;
 
-  // Move the carousel
-  currentTranslate = -index * (items[0].offsetWidth + gap);
-  track.style.transform = `translateX(${currentTranslate}px)`;
+    currentTranslate = -index * (items[0].offsetWidth + gap);
+    track.style.transform = `translateX(${currentTranslate}px)`;
+  }
 
-  // ARROWS ALWAYS VISIBLE
-  left.style.display = 'flex';
-  right.style.display = 'flex';
-}
-left.onclick = () => { index--; update(); };
-right.onclick = () => { index++; update(); };
+  left.addEventListener('click', () => { index--; update(); });
+  right.addEventListener('click', () => { index++; update(); });
 
   update();
 
-  // Optional: mouse drag
+  // Optional: mouse drag support for desktop
   let dragging = false, startX = 0, prevTranslate = 0;
+
   track.addEventListener('mousedown', e => {
     dragging = true;
     startX = e.pageX;
