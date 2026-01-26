@@ -45,70 +45,55 @@ window.addEventListener('load', () => {
     return;
   }
 
-  let currentTranslate = 0;
-  const gap = parseInt(getComputedStyle(track).gap) || 40;
+  // Wait for images inside carousel to load
+  let imagesLoaded = 0;
+  items.forEach(item => {
+    const img = item.querySelector('img');
+    if (img.complete) imagesLoaded++;
+    else img.addEventListener('load', () => {
+      imagesLoaded++;
+      if (imagesLoaded === items.length) initCarousel();
+    });
+  });
 
-  function getItemWidth() { return items[0].getBoundingClientRect().width; }
-  function getMaxScroll() {
-    const itemWidth = getItemWidth();
-    const totalWidth = items.length * (itemWidth + gap) - gap;
-    const wrapperWidth = wrapper.getBoundingClientRect().width;
-    return Math.max(totalWidth - wrapperWidth, 0);
-  }
+  if (imagesLoaded === items.length) initCarousel();
 
-  function updateTranslate() {
-    const maxScroll = getMaxScroll();
-    if (currentTranslate > 0) currentTranslate = 0;
-    if (currentTranslate < -maxScroll) currentTranslate = -maxScroll;
-    track.style.transform = `translateX(${currentTranslate}px)`;
-  }
+  function initCarousel() {
+    let currentTranslate = 0;
+    const gap = parseInt(getComputedStyle(track).gap) || 40;
 
-  // Arrow click
-  left.addEventListener('click', () => { currentTranslate += getItemWidth() + gap; updateTranslate(); });
-  right.addEventListener('click', () => { currentTranslate -= getItemWidth() + gap; updateTranslate(); });
+    function getItemWidth() { return items[0].getBoundingClientRect().width; }
+    function getMaxScroll() {
+      const itemWidth = getItemWidth();
+      const totalWidth = items.length * (itemWidth + gap) - gap;
+      const wrapperWidth = wrapper.getBoundingClientRect().width;
+      return Math.max(totalWidth - wrapperWidth, 0);
+    }
 
-  // Continuous arrow hold
-  let scrollInterval = null;
-  function startScroll(direction) {
-    stopScroll();
-    scrollInterval = setInterval(() => {
-      currentTranslate -= direction * 5; // smoother, smaller increments
+    function updateTranslate() {
+      const maxScroll = getMaxScroll();
+      if (currentTranslate > 0) currentTranslate = 0;
+      if (currentTranslate < -maxScroll) currentTranslate = -maxScroll;
+      track.style.transform = `translateX(${currentTranslate}px)`;
+    }
+
+    left.addEventListener('click', () => { currentTranslate += getItemWidth() + gap; updateTranslate(); });
+    right.addEventListener('click', () => { currentTranslate -= getItemWidth() + gap; updateTranslate(); });
+
+    // Drag support
+    let dragging = false, startX = 0, prevTranslate = 0;
+    track.addEventListener('mousedown', e => { dragging = true; startX = e.pageX; prevTranslate = currentTranslate; });
+    window.addEventListener('mouseup', () => { dragging = false; });
+    window.addEventListener('mousemove', e => {
+      if (!dragging) return;
+      currentTranslate = prevTranslate + (e.pageX - startX);
       updateTranslate();
-    }, 16);
+    });
+
+    window.addEventListener('resize', updateTranslate);
+
+    updateTranslate();
   }
-  function stopScroll() { clearInterval(scrollInterval); scrollInterval = null; }
-
-  left.addEventListener('mousedown', () => startScroll(-1));
-  right.addEventListener('mousedown', () => startScroll(1));
-  window.addEventListener('mouseup', stopScroll);
-  window.addEventListener('mouseleave', stopScroll);
-
-  // Drag support
-  let dragging = false, startX = 0, prevTranslate = 0;
-  track.addEventListener('mousedown', e => {
-    dragging = true;
-    startX = e.pageX;
-    prevTranslate = currentTranslate;
-    stopScroll();
-  });
-  window.addEventListener('mouseup', () => {
-    if (!dragging) return;
-    dragging = false;
-    const moved = currentTranslate - prevTranslate;
-    if (moved < -50) currentTranslate -= getItemWidth() + gap;
-    if (moved > 50) currentTranslate += getItemWidth() + gap;
-    updateTranslate();
-  });
-  window.addEventListener('mousemove', e => {
-    if (!dragging) return;
-    currentTranslate = prevTranslate + (e.pageX - startX);
-    updateTranslate();
-  });
-
-  // Recalculate on resize
-  window.addEventListener('resize', updateTranslate);
-
-  updateTranslate();
 });
 
   /* ---------- Recalculate on Resize ---------- */
