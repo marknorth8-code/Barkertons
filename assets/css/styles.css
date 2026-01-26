@@ -177,10 +177,6 @@ nav a{margin-left:30px;font-size:24px;color:#000;text-decoration:none}
   .home-carousel .carousel-arrow { display: none; }
 }
 
-  /* Hide arrows on mobile (optional) */
-  .carousel-arrow {
-    display: none;
-  }
 }
 
 /* SECTION 5 */
