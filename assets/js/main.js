@@ -22,38 +22,33 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-// ================= CAROUSEL WITH CONTINUOUS ARROW SCROLL =================
 const track = document.querySelector('.carousel-track');
 const items = document.querySelectorAll('.project-box');
 const left = document.querySelector('.carousel-arrow.left');
 const right = document.querySelector('.carousel-arrow.right');
 
-if (track && items.length && left && right && window.innerWidth > 768) {
-  let index = 0;
-  let currentTranslate = 0;
+if (track && items.length && left && right) {
   const wrapper = document.querySelector('.carousel-wrapper');
-  let scrollInterval = null; // for continuous scrolling
+  let currentTranslate = 0;
+  const itemWidth = items[0].offsetWidth;
+  const gap = parseInt(getComputedStyle(track).gap) || 40;
+  const maxScroll = (itemWidth + gap) * items.length - wrapper.offsetWidth;
+  let scrollInterval = null;
 
-  function update() {
-    const itemWidth = items[0].offsetWidth;
-    const gap = parseInt(getComputedStyle(track).gap) || 40;
-    const visibleCards = Math.floor(wrapper.offsetWidth / (itemWidth + gap));
-    const maxIndex = items.length - visibleCards;
+  function updateTranslate() {
+    // Clamp translate between 0 and maxScroll
+    if (currentTranslate > 0) currentTranslate = 0;
+    if (currentTranslate < -maxScroll) currentTranslate = -maxScroll;
 
-    if (index > maxIndex) index = maxIndex;
-    if (index < 0) index = 0;
-
-    currentTranslate = -index * (itemWidth + gap);
     track.style.transform = `translateX(${currentTranslate}px)`;
   }
 
   function startScroll(direction) {
-    // Scroll every 150ms while holding
-    if (scrollInterval) clearInterval(scrollInterval);
+    stopScroll();
     scrollInterval = setInterval(() => {
-      index += direction;
-      update();
-    }, 150);
+      currentTranslate -= direction * (itemWidth + gap) * 0.2; // scroll fractionally for smooth effect
+      updateTranslate();
+    }, 16); // ~60fps
   }
 
   function stopScroll() {
@@ -69,11 +64,11 @@ if (track && items.length && left && right && window.innerWidth > 768) {
   window.addEventListener('mouseup', stopScroll);
   window.addEventListener('mouseleave', stopScroll);
 
-  // Also support single click
-  left.addEventListener('click', () => { index--; update(); });
-  right.addEventListener('click', () => { index++; update(); });
+  // Arrow single click
+  left.addEventListener('click', () => { currentTranslate += itemWidth + gap; updateTranslate(); });
+  right.addEventListener('click', () => { currentTranslate -= itemWidth + gap; updateTranslate(); });
 
-  update();
+  updateTranslate();
 
   // Optional: mouse drag support
   let dragging = false, startX = 0, prevTranslate = 0;
@@ -89,21 +84,24 @@ if (track && items.length && left && right && window.innerWidth > 768) {
     if (!dragging) return;
     dragging = false;
     const moved = currentTranslate - prevTranslate;
-    if (moved < -50) index++;
-    if (moved > 50) index--;
-    update();
+    if (moved < -50) currentTranslate -= itemWidth + gap;
+    if (moved > 50) currentTranslate += itemWidth + gap;
+    updateTranslate();
   });
 
   window.addEventListener('mousemove', e => {
     if (!dragging) return;
     currentTranslate = prevTranslate + (e.pageX - startX);
-    track.style.transform = `translateX(${currentTranslate}px)`;
+    updateTranslate();
   });
 
-  // Recalculate on window resize
-  window.addEventListener('resize', update);
+  // Update on window resize
+  window.addEventListener('resize', () => {
+    const newMax = (itemWidth + gap) * items.length - wrapper.offsetWidth;
+    if (currentTranslate < -newMax) currentTranslate = -newMax;
+    updateTranslate();
+  });
 }
-
 
 /* ================= MOBILE NAV ================= */
 document.addEventListener('click', function (e) {
