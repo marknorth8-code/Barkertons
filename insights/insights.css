@@ -15,6 +15,15 @@ body {
   min-height: 80px;     /* 👈 controls how tall it is */
   line-height: 1.6;
 }
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 90px;          /* must match your global header */
+  background: #fff;
+  z-index: 1000;
+}
 
 .insights-title {
   font-family: 'Inknut Antiqua', serif;
