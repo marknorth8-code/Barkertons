@@ -121,8 +121,14 @@ nav a{margin-left:30px;font-size:24px;color:#000;text-decoration:none}
 }
 
 .carousel-arrow:hover{
-  background: #0b158a;          /* subtle hover */
+  background: #0b158a;         /* subtle hover */
 }
+.insight-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+  transition: all 0.3s ease;
+}
+
 /* SECTION 4 CAROUSEL – TIDYED CARDS */
 .insight-card {
   background: #f5f5f5;
