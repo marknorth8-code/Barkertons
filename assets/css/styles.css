@@ -95,9 +95,10 @@ nav a{margin-left:30px;font-size:24px;color:#000;text-decoration:none}
 .section-carousel {
   position: relative;
   width: 100%;
-   padding: 80px 0;    /* Increased vertical padding */
-  min-height: 550px;  /* IMPORTANT: Gives the section height so arrows can center */  
+   padding: 60px 0;    /* Increased vertical padding */
+  min-height: 450px;  /* IMPORTANT: Gives the section height so arrows can center */  
     display: flex;      /* Center the wrapper */
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -134,8 +135,8 @@ nav a{margin-left:30px;font-size:24px;color:#000;text-decoration:none}
   border-radius: 50%;
 }
 
-.carousel-arrow.left { left: 5%; }   /* outside carousel */
-.carousel-arrow.right { right: 5%; } /* outside carousel */
+.carousel-arrow.left { left: 10%; }   /* outside carousel */
+.carousel-arrow.right { right: 10%; } /* outside carousel */
 
 .carousel-arrow:hover {
   background: #0b158a;
@@ -193,7 +194,7 @@ nav a{margin-left:30px;font-size:24px;color:#000;text-decoration:none}
 
   .insight-card {
     width: 250px;
-    height: 400px;
+    height: 200px;
     scroll-snap-align: start;
   }
 }
