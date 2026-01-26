@@ -22,6 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
+// ================= CAROUSEL WORKING =================
 const track = document.querySelector('.carousel-track');
 const items = document.querySelectorAll('.project-box');
 const left = document.querySelector('.carousel-arrow.left');
@@ -30,23 +31,31 @@ const right = document.querySelector('.carousel-arrow.right');
 if (track && items.length && left && right) {
   const wrapper = document.querySelector('.carousel-wrapper');
   let currentTranslate = 0;
-  const itemWidth = items[0].offsetWidth;
   const gap = parseInt(getComputedStyle(track).gap) || 40;
-  const maxScroll = (itemWidth + gap) * items.length - wrapper.offsetWidth;
-  let scrollInterval = null;
+  const itemWidth = items[0].offsetWidth;
+  const totalWidth = items.length * (itemWidth + gap) - gap;
+  const wrapperWidth = wrapper.offsetWidth;
+  const maxScroll = totalWidth - wrapperWidth;
+
+  // Hide arrows if content fits
+  if (maxScroll <= 0) {
+    left.style.display = 'none';
+    right.style.display = 'none';
+  }
 
   function updateTranslate() {
-    // Clamp translate between 0 and maxScroll
     if (currentTranslate > 0) currentTranslate = 0;
     if (currentTranslate < -maxScroll) currentTranslate = -maxScroll;
-
     track.style.transform = `translateX(${currentTranslate}px)`;
   }
+
+  // Continuous scrolling
+  let scrollInterval = null;
 
   function startScroll(direction) {
     stopScroll();
     scrollInterval = setInterval(() => {
-      currentTranslate -= direction * (itemWidth + gap) * 0.2; // scroll fractionally for smooth effect
+      currentTranslate -= direction * 10; // small step for smooth movement
       updateTranslate();
     }, 16); // ~60fps
   }
@@ -58,26 +67,26 @@ if (track && items.length && left && right) {
     }
   }
 
-  // Arrow click + hold
+  // Arrow hold
   left.addEventListener('mousedown', () => startScroll(-1));
   right.addEventListener('mousedown', () => startScroll(1));
   window.addEventListener('mouseup', stopScroll);
   window.addEventListener('mouseleave', stopScroll);
 
-  // Arrow single click
+  // Arrow click
   left.addEventListener('click', () => { currentTranslate += itemWidth + gap; updateTranslate(); });
   right.addEventListener('click', () => { currentTranslate -= itemWidth + gap; updateTranslate(); });
 
   updateTranslate();
 
-  // Optional: mouse drag support
+  // Drag support
   let dragging = false, startX = 0, prevTranslate = 0;
 
   track.addEventListener('mousedown', e => {
     dragging = true;
     startX = e.pageX;
     prevTranslate = currentTranslate;
-    stopScroll(); // stop arrows if dragging
+    stopScroll();
   });
 
   window.addEventListener('mouseup', () => {
@@ -95,10 +104,11 @@ if (track && items.length && left && right) {
     updateTranslate();
   });
 
-  // Update on window resize
+  // Recalculate on resize
   window.addEventListener('resize', () => {
-    const newMax = (itemWidth + gap) * items.length - wrapper.offsetWidth;
-    if (currentTranslate < -newMax) currentTranslate = -newMax;
+    const newWrapperWidth = wrapper.offsetWidth;
+    const newMaxScroll = totalWidth - newWrapperWidth;
+    if (currentTranslate < -newMaxScroll) currentTranslate = -newMaxScroll;
     updateTranslate();
   });
 }
