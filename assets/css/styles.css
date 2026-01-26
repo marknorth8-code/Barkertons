@@ -136,8 +136,13 @@ nav a{margin-left:30px;font-size:24px;color:#000;text-decoration:none}
   transform: scale(1.05);
 }
 
-/* Arrows */
-.home-carousel .carousel-arrow {
+/* ================= CAROUSEL ARROWS FIX ================== */
+.section-carousel {
+  position: relative; /* make arrows position absolute relative to this container */
+  z-index: 1;         /* base z-index for carousel */
+}
+
+.carousel-arrow {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -151,14 +156,15 @@ nav a{margin-left:30px;font-size:24px;color:#000;text-decoration:none}
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 10;
   border-radius: 50%;
+  z-index: 999;       /* ✅ ensures arrows are always above track and images */
+  user-select: none;  /* prevents accidental text selection */
 }
 
-.home-carousel .carousel-arrow.left { left: 10%; }
-.home-carousel .carousel-arrow.right { right: 10%; }
+.carousel-arrow.left { left: 10px; }
+.carousel-arrow.right { right: 10px; }
 
-.home-carousel .carousel-arrow:hover {
+.carousel-arrow:hover {
   background: #0b158a;
   color: #fff;
 }
