@@ -22,14 +22,18 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-// ================= CAROUSEL WORKING =================
-const track = document.querySelector('.carousel-track');
-const items = document.querySelectorAll('.project-box');
-const left = document.querySelector('.carousel-arrow.left');
-const right = document.querySelector('.carousel-arrow.right');
-
-if (track && items.length && left && right) {
+document.addEventListener('DOMContentLoaded', () => {
+  const track = document.querySelector('.carousel-track');
+  const items = document.querySelectorAll('.project-box');
+  const left = document.querySelector('.carousel-arrow.left');
+  const right = document.querySelector('.carousel-arrow.right');
   const wrapper = document.querySelector('.carousel-wrapper');
+
+  if (!track || items.length === 0 || !left || !right || !wrapper) {
+    console.warn('Carousel elements not found');
+    return;
+  }
+
   let currentTranslate = 0;
   const gap = parseInt(getComputedStyle(track).gap) || 40;
   const itemWidth = items[0].offsetWidth;
@@ -37,7 +41,7 @@ if (track && items.length && left && right) {
   const wrapperWidth = wrapper.offsetWidth;
   const maxScroll = totalWidth - wrapperWidth;
 
-  // Hide arrows if content fits
+  // Hide arrows if everything fits
   if (maxScroll <= 0) {
     left.style.display = 'none';
     right.style.display = 'none';
@@ -55,7 +59,7 @@ if (track && items.length && left && right) {
   function startScroll(direction) {
     stopScroll();
     scrollInterval = setInterval(() => {
-      currentTranslate -= direction * 10; // small step for smooth movement
+      currentTranslate -= direction * 10;
       updateTranslate();
     }, 16); // ~60fps
   }
@@ -67,13 +71,11 @@ if (track && items.length && left && right) {
     }
   }
 
-  // Arrow hold
   left.addEventListener('mousedown', () => startScroll(-1));
   right.addEventListener('mousedown', () => startScroll(1));
   window.addEventListener('mouseup', stopScroll);
   window.addEventListener('mouseleave', stopScroll);
 
-  // Arrow click
   left.addEventListener('click', () => { currentTranslate += itemWidth + gap; updateTranslate(); });
   right.addEventListener('click', () => { currentTranslate -= itemWidth + gap; updateTranslate(); });
 
@@ -104,14 +106,13 @@ if (track && items.length && left && right) {
     updateTranslate();
   });
 
-  // Recalculate on resize
   window.addEventListener('resize', () => {
     const newWrapperWidth = wrapper.offsetWidth;
     const newMaxScroll = totalWidth - newWrapperWidth;
     if (currentTranslate < -newMaxScroll) currentTranslate = -newMaxScroll;
     updateTranslate();
   });
-}
+});
 
 /* ================= MOBILE NAV ================= */
 document.addEventListener('click', function (e) {
