@@ -101,7 +101,7 @@ nav a{margin-left:30px;font-size:24px;color:#000;text-decoration:none}
 .home-carousel h3 {
   color: #09126a;
   font-size: 30px;
-  text-align: center;
+  text-align: left;
   margin-bottom: 40px;
 }
 
@@ -182,7 +182,7 @@ nav a{margin-left:30px;font-size:24px;color:#000;text-decoration:none}
   background-color: #09126a !important; /* forces brand blue */
   color: #fff !important;               /* forces white text */
   padding: 20px 40px;
-  text-align: center;
+  text-align: left;
 }
 
 .section-people h3 {
