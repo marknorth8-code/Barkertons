@@ -174,7 +174,12 @@ nav a{margin-left:30px;font-size:24px;color:#09126a;text-decoration:none}
   .home-carousel .carousel-wrapper { width: 95%; }
   .home-carousel .carousel-track { gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; }
   .home-carousel .project-box { width: 250px; height: 180px; scroll-snap-align: start; }
-  .home-carousel .carousel-arrow { display: flex; }
+  }
+/* Home carousel – hide arrows on mobile only */
+@media (max-width: 768px) {
+  .home-carousel .carousel-arrow {
+    display: none;
+  }
 }
 
 /* SECTION 5 */
