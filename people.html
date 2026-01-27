@@ -20,38 +20,44 @@ body{
   padding-top: 0;
 }
 
-/* ========= SECTION 1 – HERO ========= */
-.people-hero{
+/* ========= SECTION 1 – HERO (RESET, NO EFFECTS) ========= */
+.people-hero {
   position: relative;
-background:
-  linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
-  url("images/people.jpg") center top / cover no-repeat;
-
-  aspect-ratio: 16 / 5;   /* 👈 key change */
   width: 100%;
-
+  height: 420px;            /* fixed, predictable */
+  overflow: hidden;        /* enables clean cropping */
   display: flex;
   align-items: center;
   padding-left: 60px;
+  background: #000;        /* fallback only */
 }
 
-/* Ensure text is always on top */
-.people-hero h1{
+.people-hero img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;            
+  object-fit: cover;
+  object-position: center top;
+}
+
+.people-hero h1 {
   position: relative;
   z-index: 2;
   font-family: 'Inknut Antiqua', serif;
   font-size: 40px;
-  color: #ffffff;
+  color: #fff;
   margin: 0;
 }
 
-@media (max-width: 768px){
-  .people-hero{
-    aspect-ratio: 4 / 3;
+/* Mobile */
+@media (max-width: 768px) {
+  .people-hero {
+    height: 300px;
     padding-left: 30px;
   }
 
-  .people-hero h1{
+  .people-hero h1 {
     font-size: 32px;
   }
 }
