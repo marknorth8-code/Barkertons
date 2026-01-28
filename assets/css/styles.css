@@ -282,6 +282,17 @@ nav a {
   text-align: left;                     /* align left */
 }
 
+/* ================= VALUE SECTION MOBILE ================= */
+.value-grid {
+  grid-template-columns: 1fr; /* stack items vertically */
+  gap: 30px; /* optional: smaller gap for mobile */
+}
+
+.value-item img {
+  width: 100%;
+  aspect-ratio: auto; /* allows image to scale naturally */
+  height: auto;
+}
 
 /* ================= MOBILE STYLES ================= */
 @media (max-width: 768px) {
