@@ -1,17 +1,43 @@
-/* ================= FOOTER YEAR ================= */
-const yearEl = document.getElementById('year');
-if (yearEl) yearEl.textContent = new Date().getFullYear();
+/* ================= HEADER / FOOTER LOAD ================= */
+document.addEventListener("DOMContentLoaded", () => {
+  const header = document.getElementById("header");
+  const footer = document.getElementById("footer");
+
+  if (header) {
+    fetch("/header.html")
+      .then(res => res.text())
+      .then(html => {
+        header.innerHTML = html;
+        initMobileNav(); // re-init hamburger AFTER header loads
+      });
+  }
+
+  if (footer) {
+    fetch("/footer.html")
+      .then(res => res.text())
+      .then(html => {
+        footer.innerHTML = html;
+
+        // ✅ Year must be set AFTER footer loads
+        const yearEl = document.getElementById("year");
+        if (yearEl) yearEl.textContent = new Date().getFullYear();
+      });
+  }
+});
+
 
 /* ================= MOBILE NAV ================= */
 function initMobileNav() {
   const hamburger = document.querySelector('.hamburger');
-  const nav = document.querySelector('nav');
+  const nav = document.querySelector('header nav'); // ✅ scoped
+
   if (!hamburger || !nav) return;
 
   hamburger.addEventListener('click', () => {
     nav.classList.toggle('active');
   });
 }
+
 
 /* ================= HOME PAGE CAROUSEL ================= */
 window.addEventListener('load', () => {
@@ -21,7 +47,7 @@ window.addEventListener('load', () => {
   const right = document.querySelector('.home-carousel .carousel-arrow.right');
   const wrapper = document.querySelector('.home-carousel .carousel-wrapper');
 
-  if (!track || items.length === 0 || !left || !right || !wrapper) return;
+  if (!track || !items.length || !left || !right || !wrapper) return;
 
   let currentTranslate = 0;
   const gap = parseInt(getComputedStyle(track).gap) || 40;
@@ -31,16 +57,13 @@ window.addEventListener('load', () => {
   }
 
   function getMaxScroll() {
-    const itemWidth = getItemWidth();
-    const totalWidth = items.length * (itemWidth + gap) - gap;
-    const wrapperWidth = wrapper.getBoundingClientRect().width;
-    return Math.max(totalWidth - wrapperWidth, 0);
+    const totalWidth = items.length * (getItemWidth() + gap) - gap;
+    return Math.max(totalWidth - wrapper.clientWidth, 0);
   }
 
   function updateTranslate() {
     const maxScroll = getMaxScroll();
-    if (currentTranslate > 0) currentTranslate = 0;
-    if (currentTranslate < -maxScroll) currentTranslate = -maxScroll;
+    currentTranslate = Math.min(0, Math.max(currentTranslate, -maxScroll));
     track.style.transform = `translateX(${currentTranslate}px)`;
   }
 
@@ -49,50 +72,48 @@ window.addEventListener('load', () => {
     currentTranslate += getItemWidth() + gap;
     updateTranslate();
   });
+
   right.addEventListener('click', () => {
     currentTranslate -= getItemWidth() + gap;
     updateTranslate();
   });
 
-  // Continuous arrow hold
-  let scrollInterval = null;
-  function startScroll(direction) {
+  // Continuous hold
+  let scrollInterval;
+  function startScroll(dir) {
     stopScroll();
     scrollInterval = setInterval(() => {
-      currentTranslate -= direction * 10;
+      currentTranslate -= dir * 10;
       updateTranslate();
     }, 16);
   }
   function stopScroll() {
     clearInterval(scrollInterval);
-    scrollInterval = null;
   }
 
   left.addEventListener('mousedown', () => startScroll(-1));
   right.addEventListener('mousedown', () => startScroll(1));
   window.addEventListener('mouseup', stopScroll);
-  window.addEventListener('mouseleave', stopScroll);
+  window.addEventListener('blur', stopScroll); // ✅ better than mouseleave
 
-  // Drag support
-  let dragging = false,
-    startX = 0,
-    prevTranslate = 0;
+  // Drag
+  let dragging = false, startX = 0, prevTranslate = 0;
+
   track.addEventListener('mousedown', e => {
     dragging = true;
     startX = e.pageX;
     prevTranslate = currentTranslate;
     stopScroll();
   });
-  window.addEventListener('mouseup', () => {
-    dragging = false;
-  });
+
+  window.addEventListener('mouseup', () => dragging = false);
+
   window.addEventListener('mousemove', e => {
     if (!dragging) return;
     currentTranslate = prevTranslate + (e.pageX - startX);
     updateTranslate();
   });
 
-  // Recalculate on resize
   window.addEventListener('resize', updateTranslate);
 
   updateTranslate();
