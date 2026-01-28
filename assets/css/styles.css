@@ -399,3 +399,18 @@ nav a {
     font-size: 30px;
   }
 }
+/* ================= INSIGHTS LINK SECTION ================= */
+.insights-link {
+  background: #7B014C; /* new background color */
+  color: #fff;         /* text color for readability */
+  padding: 30px 40px;
+  text-align: left;    /* aligns text left */
+  font-family: 'Inknut Antiqua', serif; /* matches other titles */
+  font-size: 24px;
+  border-radius: 6px;  /* optional: soft corners */
+}
+
+.insights-link a {
+  color: #fff;         /* link color */
+  text-decoration: underline;
+}
