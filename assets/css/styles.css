@@ -48,6 +48,10 @@ nav a {
   color: #09126a;
   text-decoration: none;
 }
+/* ================= HAMBURGER (desktop hidden) ================= */
+.hamburger {
+  display: none; /* ensures hidden on desktop */
+}
 
 /* ================= HERO ================= */
 .hero {
