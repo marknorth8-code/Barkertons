@@ -6,9 +6,10 @@ body {
 }
 
 .insights-page {
-  padding: 0px 40px 0px;
+  padding: 15px 40px 0;
   text-align: center;
 }
+
 .insights-title{
   text-align: left;
   margin-bottom: 0px;
@@ -20,31 +21,12 @@ body {
   min-height: 80px;     /* 👈 controls how tall it is */
   line-height: 1.6;
 }
-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 90px;          /* must match your global header */
-  background: #fff;
-  z-index: 1000;
-}
 
 .insights-title {
   font-family: 'Inknut Antiqua', serif;
   font-size: 32px;
   color: #fff;
   margin: 0 0 10px 0;
-}
-.insights-page {
-  padding-top: 15px; /* 90px header + small breathing room */
-}
-
-.carousel {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
 }
 
 .carousel-track {
@@ -74,11 +56,6 @@ header {
   color: #000;
 }
 
-.summary {
-  font-size: 14px;
-  color: #000;
-}
-
 .date {
   font-size: 18px;
   color: #09126a;
@@ -92,14 +69,20 @@ header {
   color: #fff;
   text-decoration: none;
 }
+.carousel-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
 
-.arrow {
+.carousel-arrow {
   font-size: 40px;
   background: none;
   border: none;
   color: #fff;
   cursor: pointer;
 }
+
 /* MOBILE NAV FIX */
 @media (max-width: 768px) {
 
@@ -120,10 +103,9 @@ header {
     flex-direction: column;
     z-index: 9999;
   }
-
-  header nav.open {
-    display: flex;
-  }
+header nav.active {
+  display: flex;
+}
 
   header nav a {
     padding: 15px 25px;
