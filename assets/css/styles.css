@@ -297,15 +297,13 @@ nav a {
 }
 
 .contact-page .contact-title,
-.contact-section .contact-title {
-  font-family: 'Inknut Antiqua', serif !important;  /* matches other main titles */
-  font-size: 30px;                       /* same as other titles */
-  color: #fff;                            /* white text */
+.contact-title {
+  font-family: 'Inknut Antiqua', serif !important; /* force correct font */
+  font-size: 30px !important;
+  color: #fff !important;
   margin-bottom: 25px;
-  text-align: left;                       /* left-aligned text */
-  align-self: flex-start;                 /* ensures left alignment in flex layout */
+  text-align: left !important;
 }
-
 
 /* ================= MOBILE STYLES ================= */
 @media (max-width: 768px) {
