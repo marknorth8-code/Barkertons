@@ -202,22 +202,7 @@ nav a {
 }
 
 /* ================= SECTION 5 ================= */
-.section-people {
-  background-color: #09126a !important;
-  color: #fff !important;
-  padding: 20px 40px;
-  text-align: left !important;
-}
 
-.section-people h3 {
-  color: #fff !important;
-  font-size: 30px;
-}
-
-.section-people img {
-  border: none;
-  background: transparent;
-}
 /* ================= VALUE SECTION MOBILE ================= */
 .value-grid {
   grid-template-columns: 1fr; /* stack items vertically */
