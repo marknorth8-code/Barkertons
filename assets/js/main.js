@@ -2,25 +2,6 @@
 const yearEl = document.getElementById('year');
 if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-/* ================= HEADER / FOOTER LOAD ================= */
-document.addEventListener("DOMContentLoaded", () => {
-  const header = document.getElementById("header");
-  const footer = document.getElementById("footer");
-
-  if (header) {
-    fetch("/header.html")           // root folder
-      .then(res => res.text())
-      .then(html => header.innerHTML = html)
-      .then(() => initMobileNav()); // init hamburger after header loads
-  }
-
-  if (footer) {
-    fetch("/footer.html")           // root folder
-      .then(res => res.text())
-      .then(html => footer.innerHTML = html);
-  }
-});
-
 /* ================= MOBILE NAV ================= */
 function initMobileNav() {
   const hamburger = document.querySelector('.hamburger');
