@@ -298,12 +298,13 @@ nav a {
 
 .contact-page .contact-title,
 .contact-title {
-  font-family: 'Inknut Antiqua', serif !important; /* force correct font */
-  font-size: 30px !important;
-  color: #fff !important;
+  font-family: 'Inknut Antiqua', serif;
+  font-size: 30px;
+  color: #fff;
   margin-bottom: 25px;
-  text-align: left !important;
+  text-align: left;
 }
+
 
 /* ================= MOBILE STYLES ================= */
 @media (max-width: 768px) {
