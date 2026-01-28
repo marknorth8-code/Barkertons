@@ -264,3 +264,61 @@ nav a{margin-left:30px;font-size:24px;color:#09126a;text-decoration:none}
   }
 
 }
+/* HOW WE CREATE VALUE */
+.value-section {
+  background: #09126a;
+  color: #fff;
+  padding: 80px 40px;
+}
+
+.value-section h2 {
+  font-family: 'Inknut Antiqua', serif;
+  font-size: 36px;
+  margin: 0 0 50px 0;
+  text-align: left;
+}
+
+.value-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 50px;
+}
+
+.value-item {
+  font-family: 'Bricolage Grotesque', Arial, sans-serif;
+}
+
+.value-item img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  margin-bottom: 20px;
+   border-radius: 6px;
+}
+
+.value-item h3 {
+  font-size: 22px;
+  margin: 0 0 10px 0;
+}
+
+.value-item p {
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .value-section {
+    padding: 60px 30px;
+  }
+
+  .value-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .value-section h2 {
+    font-size: 30px;
+  }
+}
