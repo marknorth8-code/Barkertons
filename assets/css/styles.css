@@ -1,5 +1,5 @@
 /* ================= GLOBAL RESET ================= */
-*,*::before,*::after {
+*, *::before, *::after {
   box-sizing: border-box;
 }
 html, body {
@@ -48,9 +48,10 @@ nav a {
   color: #09126a;
   text-decoration: none;
 }
-/* ================= HAMBURGER (desktop hidden) ================= */
+
+/* ================= HAMBURGER (desktop hidden, mobile visible) ================= */
 .hamburger {
-  display: none; /* ensures hidden on desktop */
+  display: none; /* hidden on desktop */
 }
 
 /* ================= HERO ================= */
@@ -231,9 +232,47 @@ nav a {
   font-size: 14px;
 }
 
-/* ================= HAMBURGER (desktop hidden, mobile visible) ================= */
-.hamburger {
-  display: none; /* hidden on desktop */
+/* ================= VALUE SECTION ================= */
+.value-section {
+  background: #09126a;
+  color: #fff;
+  padding: 40px 40px 60px;
+}
+
+.value-section h2 {
+  font-family: 'Inknut Antiqua', serif;
+  font-size: 24px;
+  margin: 0 0 30px 0;
+  text-align: left;
+}
+
+.value-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 50px;
+}
+
+.value-item {
+  font-family: 'Bricolage Grotesque', Arial, sans-serif;
+}
+
+.value-item img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  margin-bottom: 20px;
+  border-radius: 6px;
+}
+
+.value-item h3 {
+  font-size: 22px;
+  margin: 0 0 10px 0;
+}
+
+.value-item p {
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 0;
 }
 
 /* ================= MOBILE STYLES ================= */
@@ -269,9 +308,8 @@ nav a {
     margin: 15px 0;
     font-size: 22px;
   }
-}
 
-  /* HERO */
+  /* HERO adjustments */
   .hero {
     position: relative;
     min-height: auto;
@@ -341,47 +379,4 @@ nav a {
   .value-section h2 {
     font-size: 30px;
   }
-}
-
-/* ================= VALUE SECTION ================= */
-.value-section {
-  background: #09126a;
-  color: #fff;
-  padding: 40px 40px 60px;
-}
-
-.value-section h2 {
-  font-family: 'Inknut Antiqua', serif;
-  font-size: 24px;
-  margin: 0 0 30px 0;
-  text-align: left;
-}
-
-.value-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 50px;
-}
-
-.value-item {
-  font-family: 'Bricolage Grotesque', Arial, sans-serif;
-}
-
-.value-item img {
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
-  margin-bottom: 20px;
-  border-radius: 6px;
-}
-
-.value-item h3 {
-  font-size: 22px;
-  margin: 0 0 10px 0;
-}
-
-.value-item p {
-  font-size: 16px;
-  line-height: 1.6;
-  margin: 0;
 }
