@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-   <meta name="research into commercial development in Leicestershire with international network" content="Insights and commentary from Barkertons Property on real estate markets, investment strategy and property development.">
+   <meta name="description" content="Insights and commentary from Barkertons Property on commercial real estate markets, development strategy and land value.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Insights | Barkertons Property</title>
   
@@ -14,52 +14,37 @@
    <link rel="stylesheet" href="../assets/css/styles.css">
  <link rel="stylesheet" href="insights.css">
 </head>
+
 <body>
 
-<header>
-  <div class="logo">
-    <a href="../index.html">
-      <img src="../images/logo.jpg" alt="Barkertons Property">
-    </a>
-  </div>
-
-  <button class="hamburger" aria-label="menu">☰</button>
-
-  <nav>
-    <a href="../about.html">About</a>
-    <a href="../people.html">People</a>
-    <a href="../insights/">Insights</a>
-    <a href="../contact.html">Contact</a>
-  </nav>
-</header>
+<div id="header"></div>
 
 <main class="insights-page">
   <h1 class="insights-title">Our Insights</h1>
 
-  <div class="carousel">
-    <button class="arrow left">&#8249;</button>
+<section class="carousel-section home-carousel">
+    <div class="carousel-wrapper">
+      <button class="carousel-arrow left">&#8249;</button>
 
-    <div class="carousel">
-  <button class="arrow left">&#8249;</button>
+      <div class="carousel-track">
+        <div class="insight-card">
+          <img src="../images/insight-1.jpg" alt="Insight 1" loading="lazy">
+          <h2>Post 1 Headline</h2>
+          <p class="summary">Quarterly update on market performance</p>
+          <p class="date">22 July 2025</p>
+          <a class="read-more" href="article-template.html">Read more</a>
+        </div>
+      </div>
 
-  <div class="carousel-track">
-    <div class="insight-card">
-      <img src="../images/insight-1.jpg" alt="Insight 1" loading="lazy">
-      <h2>Post 1 Headline</h2>
-      <p class="summary">Quarterly update on market performance</p>
-      <p class="date">22 July 2025</p>
-      <a class="read-more" href="article-template.html">Read more</a>
+      <button class="carousel-arrow right">&#8250;</button>
     </div>
-  </div>
-
-    <button class="arrow right">&#8250;</button>
-  </div>
+  </section>
 </main>
 
-<footer>
-  <!-- existing site footer -->
-</footer>
+<div id="footer"></div>
 
-<script src="../assets/js/insights.js"></script>
+<script src="../assets/js/main.js" defer></script>
+
 </body>
+
 </html>
