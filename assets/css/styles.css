@@ -1,94 +1,113 @@
-
-*,*::before,*::after{box-sizing:border-box}
-html,body{margin:0;padding:0}
-body{
-  font-family:'Bricolage Grotesque',Arial,sans-serif;
-  overflow-x:hidden;
-  padding-top:90px;
+/* ================= GLOBAL RESET ================= */
+*,*::before,*::after {
+  box-sizing: border-box;
 }
-img{display:block;max-width:100%}
-
-/* HEADER */
-header{
-  position:fixed;top:0;width:100%;height:90px;
-  background:#fff;display:flex;align-items:center;
-  justify-content:space-between;padding:0 40px;z-index:1000;
+html, body {
+  margin: 0;
+  padding: 0;
 }
-.logo{width:40%;height:100%}
-.logo img{width:100%;height:100%;object-fit:contain;object-position:left}
-nav a{margin-left:30px;font-size:24px;color:#09126a;text-decoration:none}
+body {
+  font-family: 'Bricolage Grotesque', Arial, sans-serif;
+  overflow-x: hidden;
+  padding-top: 90px;
+}
+img {
+  display: block;
+  max-width: 100%;
+}
 
-/* HERO */
+/* ================= HEADER ================= */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 90px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  z-index: 1000;
+}
+
+.logo {
+  width: 40%;
+  height: 100%;
+}
+
+.logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: left;
+}
+
+nav a {
+  margin-left: 30px;
+  font-size: 24px;
+  color: #09126a;
+  text-decoration: none;
+}
+
+/* ================= HERO ================= */
 .hero {
   width: 100vw;
   height: calc(100vh - 90px);
   position: relative;
 }
 
-.hero img{width:100%;height:100%;object-fit:cover}
-.hero-text{
-  position:absolute;top:40px;right:40px;
-  font-family:'Inknut Antiqua',serif;
-  font-size:40px;color:#fff;text-align:right;
-}
-@media (max-width:768px){
-
-  .hero img{
-    height:auto;
-  }
-
-}
-/* MOBILE HERO – CSS ONLY, NO HTML CHANGES */
-@media (max-width:768px){
-
-  .hero{
-    position:relative;
-    min-height:auto;
-    height:auto;
-     }
-
-  .hero img{
-    width:100%;
-    height:auto;
-    aspect-ratio:4 / 5;
-    object-fit:cover;
-    display:block;
-  }
-
-  .hero-text{
-    position:absolute;
-    top: 20px;          /* Adjust distance from top */
-    right: 20px;        /* Adjust distance from right */
-    left: 20px;         /* Added to prevent text from running off-screen */
-    color: #fff;        /* Keeps it white */
-    font-size: 24px;    
-    line-height: 1.2;
-    text-align: right;  /* Keeps the desktop alignment */
- text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-
-  }
-
+.hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-/* SECTION 2 */
-.section-blue{
-  background:#09126a;color:#fff;
-  padding:80px 40px;font-size:30px;
+.hero-text {
+  position: absolute;
+  top: 40px;
+  right: 40px;
+  font-family: 'Inknut Antiqua', serif;
+  font-size: 40px;
+  color: #fff;
+  text-align: right;
 }
 
-/* SECTION 3 */
-.section-images{
-  display:grid;grid-template-columns:1fr 1fr;
-  width:100vw;margin:0;
-}
-.image-box{position:relative;height:450px}
-.image-box img{width:100%;height:100%;object-fit:cover}
-.image-caption{
-  position:absolute;top:20px;left:20px;
-  font-size:30px;color:#09126a;
+/* ================= SECTION 2 ================= */
+.section-blue {
+  background: #09126a;
+  color: #fff;
+  padding: 80px 40px;
+  font-size: 30px;
 }
 
-/* Home carousel isolation */
+/* ================= SECTION 3 ================= */
+.section-images {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100vw;
+  margin: 0;
+}
+
+.image-box {
+  position: relative;
+  height: 450px;
+}
+
+.image-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.image-caption {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 30px;
+  color: #09126a;
+}
+
+/* ================= HOME CAROUSEL ================= */
 .home-carousel {
   position: relative;
   width: 100%;
@@ -101,7 +120,7 @@ nav a{margin-left:30px;font-size:24px;color:#09126a;text-decoration:none}
 .home-carousel h3 {
   color: #09126a;
   font-size: 30px;
-  text-align: left!important;
+  text-align: left !important;
   margin-bottom: 40px;
 }
 
@@ -136,10 +155,10 @@ nav a{margin-left:30px;font-size:24px;color:#09126a;text-decoration:none}
   transform: scale(1.05);
 }
 
-/* ================= CAROUSEL ARROWS FIX ================== */
+/* Carousel arrows */
 .section-carousel {
-  position: relative; /* make arrows position absolute relative to this container */
-  z-index: 1;         /* base z-index for carousel */
+  position: relative;
+  z-index: 1;
 }
 
 .carousel-arrow {
@@ -157,8 +176,8 @@ nav a{margin-left:30px;font-size:24px;color:#09126a;text-decoration:none}
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  z-index: 999;       /* ✅ ensures arrows are always above track and images */
-  user-select: none;  /* prevents accidental text selection */
+  z-index: 999;
+  user-select: none;
 }
 
 .carousel-arrow.left { left: 10px; }
@@ -169,25 +188,12 @@ nav a{margin-left:30px;font-size:24px;color:#09126a;text-decoration:none}
   color: #fff;
 }
 
-/* Mobile adjustments */
-@media (max-width: 768px) {
-  .home-carousel .carousel-wrapper { width: 95%; }
-  .home-carousel .carousel-track { gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; }
-  .home-carousel .project-box { width: 250px; height: 180px; scroll-snap-align: start; }
-  }
-/* Home carousel – hide arrows on mobile only */
-@media (max-width: 768px) {
-  .home-carousel .carousel-arrow {
-    display: none;
-  }
-}
-
-/* SECTION 5 */
+/* ================= SECTION 5 ================= */
 .section-people {
-  background-color: #09126a !important; /* forces brand blue */
-  color: #fff !important;               /* forces white text */
+  background-color: #09126a !important;
+  color: #fff !important;
   padding: 20px 40px;
-  text-align: left!important;
+  text-align: left !important;
 }
 
 .section-people h3 {
@@ -196,75 +202,136 @@ nav a{margin-left:30px;font-size:24px;color:#09126a;text-decoration:none}
 }
 
 .section-people img {
-  border: none; /* remove any border that looks like white */
-  background: transparent; /* ensure image doesn’t cover background */
+  border: none;
+  background: transparent;
 }
 
-/* SECTION 6 */
-.section-partner{
-  padding:40px 40px;
-  font-size:20px;
-  text-align:center;
+/* ================= SECTION 6 ================= */
+.section-partner {
+  padding: 40px 40px;
+  font-size: 20px;
+  text-align: center;
 }
 
-/* FOOTER */
-.footer{
-  background:#494b54;color:#fff;
-  padding:40px;display:flex;justify-content:space-between;
-}
-.footer small{
-  font-family:'Times New Roman',serif;font-size:14px;
-}
-/* DESKTOP */
-.hamburger{
-  display:none;
+/* ================= FOOTER ================= */
+.footer {
+  background: #494b54;
+  color: #fff;
+  padding: 40px;
+  display: flex;
+  justify-content: space-between;
 }
 
-/* MOBILE HEADER / HAMBURGER */
-@media (max-width:768px){
+.footer small {
+  font-family: 'Times New Roman', serif;
+  font-size: 14px;
+}
 
-  nav{
-    display:none;
+/* ================= MOBILE STYLES ================= */
+@media (max-width: 768px) {
+
+  /* HEADER / HAMBURGER */
+  nav {
+    display: none;
   }
 
-  .hamburger{
-    display:block;
-    font-size:28px;
-    background:none;
-    border:none;
-    cursor:pointer;
+  .hamburger {
+    display: block;
+    font-size: 28px;
+    background: none;
+    border: none;
+    cursor: pointer;
   }
 
-  nav.active{
-    display:block;
-    position:absolute;
-    top:90px;
-    left:0;
-    width:100%;
-    background:#fff;
-    padding:20px 40px;
+  nav.active {
+    display: block;
+    position: absolute;
+    top: 90px;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    padding: 20px 40px;
   }
 
-  nav a{
-    display:block;
-    margin:15px 0;
-    font-size:22px;
+  nav a {
+    display: block;
+    margin: 15px 0;
+    font-size: 22px;
   }
 
+  /* HERO */
+  .hero {
+    position: relative;
+    min-height: auto;
+    height: auto;
+  }
+
+  .hero img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+  }
+
+  .hero-text {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    left: 20px;
+    color: #fff;
+    font-size: 24px;
+    line-height: 1.2;
+    text-align: right;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+  }
+
+  /* SECTION 3 - IMAGE STACK */
+  .section-images {
+    grid-template-columns: 1fr;
+  }
+
+  .image-box {
+    height: 320px;
+  }
+
+  /* HOME CAROUSEL */
+  .home-carousel .carousel-wrapper {
+    width: 95%;
+  }
+
+  .home-carousel .carousel-track {
+    gap: 20px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .home-carousel .project-box {
+    width: 250px;
+    height: 180px;
+    scroll-snap-align: start;
+  }
+
+  .home-carousel .carousel-arrow {
+    display: none;
+  }
+
+  /* VALUE SECTION */
+  .value-section {
+    padding: 60px 30px;
+  }
+
+  .value-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .value-section h2 {
+    font-size: 30px;
+  }
 }
-/* MOBILE SECTION 3 STACK */
-@media (max-width:768px){
 
-  .section-images{
-    grid-template-columns:1fr;
-  }
-
-  .image-box{
-    height:320px; /* optional: slightly tighter on mobile */
-  }
-
-}
-/* HOW WE CREATE VALUE */
+/* ================= VALUE SECTION ================= */
 .value-section {
   background: #09126a;
   color: #fff;
@@ -293,7 +360,7 @@ nav a{margin-left:30px;font-size:24px;color:#09126a;text-decoration:none}
   aspect-ratio: 4 / 3;
   object-fit: cover;
   margin-bottom: 20px;
-   border-radius: 6px;
+  border-radius: 6px;
 }
 
 .value-item h3 {
@@ -305,20 +372,4 @@ nav a{margin-left:30px;font-size:24px;color:#09126a;text-decoration:none}
   font-size: 16px;
   line-height: 1.6;
   margin: 0;
-}
-
-/* Mobile */
-@media (max-width: 768px) {
-  .value-section {
-    padding: 60px 30px;
-  }
-
-  .value-grid {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-
-  .value-section h2 {
-    font-size: 30px;
-  }
 }
