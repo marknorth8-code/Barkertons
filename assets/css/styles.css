@@ -219,11 +219,11 @@ nav a {
 .insights-link {
   background: #7B014C; /* new background color */
   color: #fff;         /* text color for readability */
-  padding: 10px 10px;
-  text-align: left;    /* aligns text left */
+  padding: 0;
+  text-align: right;    /* aligns text left */
   font-family: 'Inknut Antiqua', serif; /* matches other titles */
   font-size: 24px;
-   text-align: right;
+  line-height: 1.2; 
   border-radius: 6px;  /* optional: soft corners */
 }
 
