@@ -1,85 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Insights and commentary from Barkertons Property on commercial real estate markets, development strategy and land value.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Insights | Barkertons Property</title>
 
-body {
-  margin: 0;
-  font-family: 'Bricolage Grotesque', sans-serif;
-  background: #494b54;
-}
+  <!-- GOOGLE FONTS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600&family=Inknut+Antiqua:wght@400;600&display=swap" rel="stylesheet">
 
-.insights-page {
-  padding: 15px 40px 0;
-  text-align: center;
-}
+  <!-- GLOBAL STYLES -->
+  <link rel="stylesheet" href="../assets/css/styles.css">
+  <link rel="stylesheet" href="insights.css">
+</head>
+<body>
 
-.insights-title{
-  text-align: left;
-  margin-bottom: 0px;
-}
+  <div id="header" style="height:90px;"></div>
 
-.summary {
-  font-size: 14px;
-  color: #000;
-  min-height: 80px;     /* 👈 controls how tall it is */
-  line-height: 1.6;
-}
+  <main class="insights-page">
 
-.insights-title {
-  font-family: 'Inknut Antiqua', serif;
-  font-size: 32px;
-  color: #fff;
-  margin: 0 0 10px 0;
-}
+    <!-- PAGE TITLE -->
+    <h1 class="insights-title">Quarterly Market Insights</h1>
+    <p class="summary">A concise overview of this quarter’s market performance, development opportunities, and investment insights.</p>
 
-.carousel-track {
-  width: 320px;
-}
+    <!-- ARTICLE CONTENT -->
+    <article class="insights-article">
 
-.insight-card {
-  background: #f5f5f5;
-  padding: 10px;
-  transition: all 0.3s ease;
-}
+      <!-- MAIN IMAGE -->
+      <img class="main-image" src="../images/insight-1.jpg" alt="Main Insight Image">
 
-.insight-card:hover {
-  background: #fff;
-  transform: translateY(-8px);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
-}
+      <!-- ARTICLE TEXT -->
+      <p class="article-text">
+        This quarter has seen significant shifts in the commercial real estate market. Investors are increasingly focusing on mixed-use developments, while land values in strategic locations continue to rise. Barkertons Property provides hands-on guidance for identifying opportunities with long-term growth potential.
+      </p>
 
-.insight-card img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-}
+      <p class="article-text">
+        Our analysis shows that certain regions offer diversification opportunities for both domestic and international investors. By combining local knowledge with international networks, we help clients make informed decisions on development and investment.
+      </p>
 
-.insight-card h2 {
-  font-size: 20px;
-  color: #000;
-}
+      <!-- OPTIONAL SMALL IMAGES -->
+      <div class="small-images">
+        <img src="../images/insight-1a.jpg" alt="Supporting Image 1">
+        <img src="../images/insight-1b.jpg" alt="Supporting Image 2">
+        <img src="../images/insight-1c.jpg" alt="Supporting Image 3">
+      </div>
 
-.date {
-  font-size: 18px;
-  color: #09126a;
-}
+    </article>
 
-.read-more {
-  display: inline-block;
-  margin-top: 10px;
-  padding: 10px 20px;
-  background: #09126a;
-  color: #fff;
-  text-decoration: none;
-}
-.carousel-wrapper {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
+  </main>
 
-.carousel-arrow {
-  font-size: 40px;
-  background: none;
-  border: none;
-  color: #fff;
-  cursor: pointer;
-}
+  <div id="footer"></div>
 
+  <script src="../assets/js/main.js" defer></script>
+</body>
+</html>
