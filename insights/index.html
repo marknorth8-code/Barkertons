@@ -6,11 +6,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Insights | Barkertons Property</title>
   
+  <!-- GOOGLE FONTS -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600&family=Inknut+Antiqua:wght@400;600&display=swap" rel="stylesheet">
 
+  <!-- MAIN SITE CSS -->
   <link rel="stylesheet" href="../assets/css/styles.css">
+
+  <!-- INSIGHTS PAGE CSS -->
   <link rel="stylesheet" href="insights.css">
 </head>
 
@@ -22,7 +26,7 @@
   <h1 class="insights-title">Our Insights</h1>
 
   <!-- Carousel / summary cards container -->
-  <section class="carousel-section home-carousel">
+  <section class="home-carousel">
     <div class="carousel-wrapper">
       <button class="carousel-arrow left">&#8249;</button>
 
@@ -33,7 +37,6 @@
       <button class="carousel-arrow right">&#8250;</button>
     </div>
   </section>
-
 </main>
 
 <div id="footer"></div>
@@ -46,18 +49,17 @@ function loadHTML(id, file) {
     .then(data => document.getElementById(id).innerHTML = data)
     .catch(err => console.error(`Failed to load ${file}:`, err));
 }
-
 loadHTML('header', '../header.html');
 loadHTML('footer', '../footer.html');
 
-// Load carousel cards
+// Load carousel cards from JSON
 fetch('JS/insights.json')
   .then(res => res.json())
   .then(data => {
     const track = document.querySelector('.carousel-track');
     data.forEach(item => {
       const card = document.createElement('div');
-      card.className = 'carousel-card';
+      card.className = 'project-box'; // matches insights.css
       card.innerHTML = `
         <a href="${item.link}">
           <img src="${item.image}" alt="${item.title}">
