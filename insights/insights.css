@@ -1,7 +1,7 @@
 /* ================= INSIGHTS PAGE ================= */
 
 .insights-page {
-  padding: 100px 40px 60px;
+  padding: 40px 40px 30px;
   font-family: 'Bricolage Grotesque', Arial, sans-serif;
   color: #09126a;
 }
@@ -39,7 +39,7 @@
 .home-carousel .project-box {
   flex-shrink: 0;
   width: 300px;
-  height: 220px;
+  height: 320px;
   border-radius: 8px;
   overflow: hidden;
   background: #f5f5f5;
