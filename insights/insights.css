@@ -1,13 +1,11 @@
 /* ================= INSIGHTS PAGE ================= */
 
-/* Page layout */
 .insights-page {
-  padding: 100px 40px 60px; /* leave space for header */
+  padding: 100px 40px 60px;
   font-family: 'Bricolage Grotesque', Arial, sans-serif;
   color: #09126a;
 }
 
-/* Page title */
 .insights-title {
   font-family: 'Inknut Antiqua', serif;
   font-size: 36px;
@@ -15,7 +13,7 @@
   text-align: center;
 }
 
-/* Carousel container */
+/* Carousel */
 .home-carousel {
   position: relative;
   width: 100%;
@@ -28,15 +26,16 @@
 .home-carousel .carousel-wrapper {
   width: 90%;
   overflow: hidden;
+  height: 220px; /* ensures cards are visible */
 }
 
 .home-carousel .carousel-track {
   display: flex;
   gap: 30px;
   transition: transform 0.4s ease;
+  overflow-x: auto; /* allow horizontal scrolling */
 }
 
-/* Card inside carousel */
 .home-carousel .project-box {
   flex-shrink: 0;
   width: 300px;
@@ -59,4 +58,7 @@
 }
 
 .home-carousel .project-box p {
-  font-
+  font-size: 14px;
+  margin: 0 10px 10px 10px;
+  color: #555;
+}
