@@ -339,15 +339,16 @@ nav a {
   }
 
   /* mobile nav active */
-  nav.active {
-    display: block;
-    position: absolute;
-    top: 90px;
-    left: 0;
-    width: 100%;
-    background: #fff;
-    padding: 20px 40px;
-  }
+nav.active {
+  display: block;
+  position: fixed;
+  top: 90px;          /* sits below fixed header */
+  left: 0;
+  width: 100vw;
+  background: #fff;
+  padding: 20px 40px;
+  z-index: 9998;      /* below hamburger, above page */
+}
 
   nav a {
     display: block;
