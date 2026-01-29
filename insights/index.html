@@ -69,9 +69,20 @@ fetch('JS/insights.json')
       `;
       track.appendChild(card);
     });
+
+    // Arrow scroll functionality
+    const leftArrow = document.querySelector('.carousel-arrow.left');
+    const rightArrow = document.querySelector('.carousel-arrow.right');
+
+    const cardWidth = track.querySelector('.project-box').offsetWidth + 30; // card width + gap
+
+    leftArrow.addEventListener('click', () => {
+      track.scrollBy({ left: -cardWidth, behavior: 'smooth' });
+    });
+
+    rightArrow.addEventListener('click', () => {
+      track.scrollBy({ left: cardWidth, behavior: 'smooth' });
+    });
   })
   .catch(err => console.error('Failed to load carousel JSON:', err));
 </script>
-
-</body>
-</html>
