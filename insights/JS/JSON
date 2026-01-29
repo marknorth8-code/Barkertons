@@ -1,0 +1,16 @@
+[
+  {
+    "title": "Quarterly Market Update",
+    "summary": "Quarterly update on market performance across commercial property sectors.",
+    "date": "22 July 2025",
+    "image": "images/insights/insight-001.jpg",
+    "link": "insights/insight-001.html"
+  },
+  {
+    "title": "Land Valuation Trends",
+    "summary": "Analysis of the latest land valuation trends impacting development strategy.",
+    "date": "29 January 2026",
+    "image": "images/insights/insight-002.jpg",
+    "link": "insights/insight-002.html"
+  }
+]
