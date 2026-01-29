@@ -37,9 +37,9 @@
 </main>
 
 <div id="footer"></div>
-                   
+
 <script>
-// Function to load external HTML into a div
+// Load header and footer
 function loadHTML(id, file) {
   fetch(file)
     .then(response => response.text())
@@ -47,7 +47,29 @@ function loadHTML(id, file) {
     .catch(err => console.error(`Failed to load ${file}:`, err));
 }
 
-// Load header and footer
 loadHTML('header', '../header.html');
 loadHTML('footer', '../footer.html');
+
+// Load carousel cards
+fetch('JS/insights.json')
+  .then(res => res.json())
+  .then(data => {
+    const track = document.querySelector('.carousel-track');
+    data.forEach(item => {
+      const card = document.createElement('div');
+      card.className = 'carousel-card';
+      card.innerHTML = `
+        <a href="${item.link}">
+          <img src="${item.image}" alt="${item.title}">
+          <h3>${item.title}</h3>
+          <p>${item.summary}</p>
+        </a>
+      `;
+      track.appendChild(card);
+    });
+  })
+  .catch(err => console.error('Failed to load carousel JSON:', err));
 </script>
+
+</body>
+</html>
