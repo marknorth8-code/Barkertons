@@ -18,6 +18,32 @@
   <link rel="stylesheet" href="insights.css">
 </head>
 
+  <script src="../assets/js/main.js" defer></script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  fetch('JS/insights-data.json')
+    .then(res => res.json())
+    .then(data => {
+      const track = document.querySelector('.home-carousel .carousel-track');
+      if (!track) return;
+
+      data.forEach(item => {
+        const card = document.createElement('div');
+        card.className = 'project-box'; // matches main.js carousel code
+        card.innerHTML = `
+          <a href="${item.link}">
+            <img src="${item.image}" alt="${item.title}">
+            <h3>${item.title}</h3>
+            <p>${item.summary}</p>
+          </a>
+        `;
+        track.appendChild(card);
+      });
+    })
+    .catch(err => console.error('Failed to load Insights JSON:', err));
+});
+</script>
+
 <body>
 
 <div id="header" style="height:90px;"></div>
