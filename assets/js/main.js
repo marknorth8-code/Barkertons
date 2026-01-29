@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
 /* ================= MOBILE NAV ================= */
 function initMobileNav() {
   const hamburger = document.querySelector('.hamburger');
-  const nav = document.querySelector('header nav'); // ✅ scoped
+  const nav = document.querySelector('nav'); // ✅ scoped
 
   if (!hamburger || !nav) return;
 
