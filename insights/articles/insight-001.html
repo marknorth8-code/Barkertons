@@ -93,7 +93,9 @@ For me, being based in Auckland and managing properties in the South Island, wit
     .then(res => res.json())
     .then(data => {
 
-      const article = data.find(item => item.slug === slug);
+   const article = data.find(item =>
+  item.link.includes(slug)
+);
 
       if (!article) {
         console.error('Article not found:', slug);
