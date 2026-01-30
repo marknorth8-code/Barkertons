@@ -93,7 +93,7 @@ nav a {
 
 /* ================= SECTION 2 ================= */
 .section-blue {
-  background: #09126a;
+  background: #f5f5f5;
   color: #fff;
   padding: 80px 40px;
   font-size: 30px;
@@ -137,7 +137,7 @@ nav a {
 }
 
 .home-carousel h3 {
-  color: #09126a;
+  color: #f5f5f5;
   font-size: 30px;
   font-family: 'Inknut Antiqua', serif; /* matches other titles */
   text-align: left !important;
@@ -225,7 +225,7 @@ nav a {
 /* ================= INSIGHTS LINK SECTION ================= */
 .section-insights {
   width: 100%;
-  background: #7B014C;      /* full-width red background */
+  background: #09126a;      /* full-width red background */
   padding: 10px 20px;               /* no vertical padding */
 }
 
@@ -253,7 +253,7 @@ nav a {
 
 /* ================= FOOTER ================= */
 .footer {
-  background: #494b54;
+  background: #f5f5f5;
   color: #fff;
   padding: 40px;
   display: flex;
@@ -267,8 +267,8 @@ nav a {
 
 /* ================= VALUE SECTION ================= */
 .value-section {
-  background: #09126a;
-  color: #fff;
+  background: #f5f5f5;
+  color: #555;
   padding: 40px 40px 60px;
 }
 
@@ -495,8 +495,8 @@ nav.active {
 .profile-bio a {
   display: inline-block;
   padding: 10px 25px;
-  background: #09126a;
-  color: #fff;
+  background: #f5f5f5;
+  color: #555;
   text-decoration: none;
   border-radius: 6px;
   font-weight: 500;
@@ -526,8 +526,8 @@ nav.active {
   padding: 40px 20px;        /* spacing inside */
   font-family: 'Bricolage Grotesque', Arial, sans-serif;
   font-size: 20px;
-  color: #fff;               /* white text */
-  background-color: #09126a; /* brand blue */
+  color: #555;               /* white text */
+  background-color: #f5f5f5; /* brand blue */
   text-align: center;
   box-sizing: border-box;    /* ensures padding doesn’t overflow */
 }
@@ -540,9 +540,9 @@ nav.active {
 
 /* ========= NETWORK GRID SECTION ========= */
 .network-section {
-  background-color: #09126a;
+  background-color: #f5f5f5;
   padding: 80px 40px;
-  color: #fff;
+  color: #555;
   text-align: center;
 }
 
