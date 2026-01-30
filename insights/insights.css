@@ -11,16 +11,16 @@
   font-size: 36px;
   margin-bottom: 20px;
   text-align: center;
-   font-weight: 700; /* bold title */
+  font-weight: 700; /* bold title */
 }
 
 #article-summary {
-  font-family: 'Inknut Antiqua', Georgia, Times, serif; /* primary + safe fallbacks */
-  font-weight: 900;       /* extra bold for maximum visual weight */
-  font-style: normal;     /* ensures not italic */
-  color: #000000;         /* black text */
+  font-family: 'Inknut Antiqua', Georgia, Times, serif;
+  font-weight: 900;       /* extra bold */
+  font-style: normal;
+  color: #000000;
   font-size: 18px;
-  line-height: 1.6;       /* optional: improves readability for paragraphs */
+  line-height: 1.6;
   margin-bottom: 30px;
 }
 
@@ -37,14 +37,14 @@
 .home-carousel .carousel-wrapper {
   width: 80%;
   overflow: hidden;
-  height: 440px; /* ensures cards are visible */
+  height: 440px;
 }
 
 .home-carousel .carousel-track {
   display: flex;
   gap: 30px;
   transition: transform 0.4s ease;
-  overflow-x: auto; /* allow horizontal scrolling */
+  overflow-x: auto;
 }
 
 .home-carousel .project-box {
@@ -68,6 +68,7 @@
   margin: 10px;
   line-height: 1.2;
 }
+
 .home-carousel .project-box p {
   font-size: 14px;
   margin: 0 10px 10px 10px;
@@ -80,67 +81,39 @@
   color: #09126a;
 }
 
-  /* Allow drag + arrows to work */
-.home-carousel .carousel-track {
-  cursor: grab;
-}
+/* Allow drag + arrows */
+.home-carousel .carousel-track { cursor: grab; }
+.home-carousel .carousel-track:active { cursor: grabbing; }
+.home-carousel .project-box a { pointer-events: auto; }
+.home-carousel .carousel-track { pointer-events: auto; }
+.carousel-arrow { pointer-events: auto; z-index: 10; }
+.home-carousel .carousel-track.dragging .project-box a { pointer-events: none; }
 
-.home-carousel .carousel-track:active {
-  cursor: grabbing;
-}
-
-/* Stop links from hijacking drag events */
-.home-carousel .project-box a {
-  pointer-events: auto;
-}
-
-.home-carousel .carousel-track {
-  pointer-events: auto;
-}
-
-/* Ensure arrows are always clickable */
-.carousel-arrow {
-  pointer-events: auto;
-  z-index: 10;
-}
-/* Disable link interaction ONLY while dragging */
-.home-carousel .carousel-track.dragging .project-box a {
-  pointer-events: none;
-}
-/* ================= CAROUSEL CARD HOVER EFFECT ================= */
+/* Hover effect */
 .home-carousel .project-box {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: pointer; /* indicates it's interactive */
+  cursor: pointer;
+}
+.home-carousel .project-box:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 20px rgba(0,0,0,0.2);
 }
 
-.home-carousel .project-box:hover {
-  transform: translateY(-10px); /* lifts the card up */
-  box-shadow: 0 12px 20px rgba(0,0,0,0.2); /* stronger shadow */
-}
 /* ================= MOBILE ADJUSTMENTS ================= */
 @media (max-width: 768px) {
-  /* make carousel wrapper taller for double-height cards */
-  .home-carousel .carousel-wrapper {
-    height: 500px;
-  }
+  /* carousel adjustments */
+  .home-carousel .carousel-wrapper { height: 500px; }
+  .home-carousel .project-box { width: 250px; height: 400px; }
+  .home-carousel .project-box img { height: 150px; }
+  .home-carousel .carousel-track { gap: 20px; }
 
-  /* smaller, slightly shorter cards for mobile */
-  .home-carousel .project-box {
-    width: 250px;
-    height: 400px;
+  /* body padding for mobile */
+  body {
+    padding-top: 40px; /* reduces gap above title */
+    padding-left: 20px;
+    padding-right: 20px;
   }
-
-  /* adjust image height proportionally */
-  .home-carousel .project-box img {
-    height: 150px;
-  }
-
-  /* optional: reduce gap between cards */
-  .home-carousel .carousel-track {
-    gap: 20px;
-  }
-
 }
-.insights-title {
-  display: none;
-}
+
+/* hide main insights title */
+.insights-title { display: none; }
