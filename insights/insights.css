@@ -112,7 +112,6 @@
   .insights-page .home-carousel .project-box {
     scroll-snap-align: start;
   }
-}
  .insights-page .home-carousel .carousel-wrapper {
     width: 100%;
     height: auto;
@@ -146,8 +145,8 @@
     line-height: 1.5;
     margin: 10px;
   }
-
+  
   .insights-page .carousel-arrow {
     display: none;   /* hide arrows on mobile */
   }
-}
+}  /* close media query correctly */
