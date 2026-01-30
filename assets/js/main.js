@@ -37,18 +37,20 @@ function initMobileNav() {
 /* ================= CAROUSEL ================= */
 function initCarousel() {
   const carousel = document.querySelector('.home-carousel');
+ 
   if (!carousel || carousel.dataset.initialised) return;
 
-  carousel.dataset.initialised = "true";
+const track = carousel.querySelector('.carousel-track');
+const items = carousel.querySelectorAll('.project-box');
+const left = carousel.querySelector('.carousel-arrow.left');
+const right = carousel.querySelector('.carousel-arrow.right');
+const wrapper = carousel.querySelector('.carousel-wrapper');
 
-  const track = carousel.querySelector('.carousel-track');
-  const items = carousel.querySelectorAll('.project-box');
-  const left = carousel.querySelector('.carousel-arrow.left');
-  const right = carousel.querySelector('.carousel-arrow.right');
-  const wrapper = carousel.querySelector('.carousel-wrapper');
+if (!track || !items.length || !left || !right || !wrapper) return;
 
-  if (!track || !items.length || !left || !right || !wrapper) return;
-
+// ✅ mark as initialised ONLY when ready
+carousel.dataset.initialised = "true";
+  
   let currentTranslate = 0;
   const gap = parseInt(getComputedStyle(track).gap) || 40;
 
