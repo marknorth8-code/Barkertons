@@ -58,10 +58,12 @@
   line-height: 1.2;
 }
 
-.home-carousel .project-box p {
-  font-size: 14px;
-  margin: 0 10px 10px 10px;
-    color: #555;
+.home-carousel .project-box .card-date {
+  margin-top: 20px;
+  font-size: 13px;
+  color: #09126a; /* or any colour you want */
+}
+
 }
 .home-carousel .project-box .date {
   margin-top: 30px;  /* blank space above the date */
