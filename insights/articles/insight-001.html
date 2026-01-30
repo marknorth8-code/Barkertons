@@ -71,30 +71,36 @@
   </p>
 
   <!-- LOAD ARTICLE DATA -->
-  <script>
-    fetch('../JS/insights-data.json')
-      .then(res => res.json())
-      .then(data => {
+ <script>
+  // Get filename without .html → insight-001
+  const slug = window.location.pathname
+    .split('/')
+    .pop()
+    .replace('.html', '');
 
-        const slug = 'insight-001';
-        const article = data.find(item => item.slug === slug);
+  fetch('../JS/insights-data.json')
+    .then(res => res.json())
+    .then(data => {
 
-        if (!article) {
-          console.error('Article not found:', slug);
-          return;
-        }
+      const article = data.find(item => item.slug === slug);
 
-        document.getElementById('article-title').textContent = article.title;
-        document.getElementById('article-date').textContent = article.date;
-        document.getElementById('article-summary').textContent = article.summary;
-        document.getElementById('article-caption').textContent = article.caption || '';
+      if (!article) {
+        console.error('Article not found:', slug);
+        return;
+      }
 
-        const img = document.getElementById('article-image');
-        img.src = '../images/insight-001.jpg';
-        img.alt = article.title;
-      })
-      .catch(err => console.error('Article load error:', err));
-  </script>
+      document.getElementById('article-title').textContent = article.title;
+      document.getElementById('article-date').textContent = article.date;
+      document.getElementById('article-summary').textContent = article.summary;
+      document.getElementById('article-caption').textContent = article.caption || '';
+
+      const img = document.getElementById('article-image');
+      img.src = article.image;
+      img.alt = article.title;
+    })
+    .catch(err => console.error('Article load error:', err));
+</script>
+
 
 </body>
 </html>
