@@ -14,6 +14,11 @@
    font-weight: 700; /* bold title */
 }
 
+#article-summary {
+  font-weight: 700; /* summary bold */
+  font-size: 18px;
+  margin-bottom: 30px;
+}
 /* Carousel */
 .home-carousel {
   position: relative;
