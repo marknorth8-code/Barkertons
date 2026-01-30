@@ -118,3 +118,46 @@ window.addEventListener('load', () => {
 
   updateTranslate();
 });
+function initCarousel() {
+  const carousel = document.querySelector('.home-carousel');
+  if (!carousel) return;
+
+  const track = carousel.querySelector('.carousel-track');
+  const items = carousel.querySelectorAll('.project-box');
+  const left = carousel.querySelector('.carousel-arrow.left');
+  const right = carousel.querySelector('.carousel-arrow.right');
+  const wrapper = carousel.querySelector('.carousel-wrapper');
+
+  if (!track || !items.length || !left || !right || !wrapper) return;
+
+  let currentTranslate = 0;
+  const gap = parseInt(getComputedStyle(track).gap) || 40;
+
+  function getItemWidth() {
+    return items[0].getBoundingClientRect().width;
+  }
+
+  function getMaxScroll() {
+    const totalWidth =
+      items.length * (getItemWidth() + gap) - gap;
+    return Math.max(totalWidth - wrapper.clientWidth, 0);
+  }
+
+  function updateTranslate() {
+    const maxScroll = getMaxScroll();
+    currentTranslate = Math.min(0, Math.max(currentTranslate, -maxScroll));
+    track.style.transform = `translateX(${currentTranslate}px)`;
+  }
+
+  left.onclick = () => {
+    currentTranslate += getItemWidth() + gap;
+    updateTranslate();
+  };
+
+  right.onclick = () => {
+    currentTranslate -= getItemWidth() + gap;
+    updateTranslate();
+  };
+
+  updateTranslate();
+}
