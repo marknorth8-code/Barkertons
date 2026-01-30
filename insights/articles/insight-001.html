@@ -72,7 +72,6 @@
 
   <!-- LOAD ARTICLE DATA -->
  <script>
-  // Get filename without .html → insight-001
   const slug = window.location.pathname
     .split('/')
     .pop()
@@ -95,7 +94,7 @@
       document.getElementById('article-caption').textContent = article.caption || '';
 
       const img = document.getElementById('article-image');
-      img.src = article.image;
+      img.src = '../' + article.image;   // 👈 key fix
       img.alt = article.title;
     })
     .catch(err => console.error('Article load error:', err));
