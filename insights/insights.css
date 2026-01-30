@@ -106,37 +106,37 @@
 @media (max-width: 768px) {
 
   .insights-page {
-    padding: 0 15px;  /* reduce horizontal padding */
+    padding: 0 15px;  /* reduce page padding */
+  }
+
+  .home-carousel .carousel-wrapper {
+    height: auto;    /* adjust to card height */
   }
 
   .home-carousel .project-box {
-    width: 90vw;       /* fit almost entire viewport width */
-    height: auto;      /* allow height to adjust based on content */
+    width: 90vw;     /* nearly full screen width */
+    height: auto;    /* let height expand naturally */
   }
 
   .home-carousel .project-box img {
-    width: 100%;       /* scale image to box width */
-    height: auto;      /* maintain aspect ratio */
-    max-height: 250px; /* prevent image from taking too much vertical space */
+    width: 100%;
+    height: auto;
+    max-height: 250px;
+    object-fit: cover;
+  }
+
+  .home-carousel .project-box h3 {
+    font-size: 18px;
+    margin: 10px;
   }
 
   .home-carousel .project-box p {
     font-size: 16px;
     line-height: 1.5;
-    max-height: 200px;   /* optional: prevent text from overflowing */
-    overflow: hidden;    /* hide excess if needed */
+    margin: 10px;
   }
 
-  .home-carousel .carousel-wrapper {
-    height: auto;       /* let the wrapper adjust to card height */
+  .carousel-arrow {
+    display: none;   /* hide arrows on mobile */
   }
 }
-
-/* Reduce page padding/gap above title on mobile */
-body {
-  padding-top: 20px;
-  padding-left: 10px;
-  padding-right: 10px;
-}
-
-
