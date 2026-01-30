@@ -105,14 +105,16 @@
 
 @media (max-width: 768px) {
 
+  .home-carousel .carousel-wrapper {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+  }
+
   .insights-page {
     padding: 0 15px;  /* reduce page padding */
   }
-
-  .home-carousel .carousel-wrapper {
-    height: auto;    /* adjust to card height */
-  }
-
+  
   .home-carousel .project-box {
     width: 90vw;     /* nearly full screen width */
     height: auto;    /* let height expand naturally */
