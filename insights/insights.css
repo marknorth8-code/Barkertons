@@ -14,11 +14,11 @@
    font-weight: 700; /* bold title */
 }
 
-/* ARTICLE SUMMARY */
-body #article-summary {
-  font-weight: 900; /* heaviest bold */
-  color: #000000;   /* black text */
+#article-summary {
+  font-family: 'Inknut Antiqua', serif;
+  font-weight: 700; /* now renders visibly bold */
   font-size: 18px;
+  color: #000000;
   margin-bottom: 30px;
 }
 
