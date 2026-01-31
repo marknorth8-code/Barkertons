@@ -55,8 +55,8 @@
 .insight-card-link h3 {
   font-size: 16px;
   font-weight: 600;
-  margin-bottom: 4px;
-  line-height: 1.2;
+  margin-bottom: 2px;
+  line-height: 1.1;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;  /* only one line */
@@ -65,9 +65,9 @@
 /* SUMMARY (3 lines max) */
 .insight-card-link p {
   font-size: 15px;
-  line-height: 1.4;
+  line-height: 1.2;
   color: #444;
-  margin-bottom: 6px;
+  margin-bottom: 4px;
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
