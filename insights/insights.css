@@ -12,16 +12,18 @@
 }
 
 /* ================= INSIGHT CARD ================= */
-.insight-card-link {
-  display: flex;
-  flex-direction: column;
-  background: #ffffff;
-  border-radius: 12px;
-  overflow: hidden;
+.insight-card-link .read-more {
+  display: inline-block;          /* keeps it only as wide as content + padding */
+  margin: 12px auto 0;            /* top spacing 12px, auto left/right centers it */
+  padding: 6px 14px;              /* slightly smaller padding */
+  background-color: #09126a;      /* brand blue */
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
   text-decoration: none;
-  color: #09126a;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-  cursor: pointer;
+  border-radius: 6px;
+  transition: background-color 0.25s ease;
+  text-align: center;             /* ensures text is centered inside the button */
 }
 
 .insight-card-link:hover {
