@@ -102,4 +102,4 @@ carousel.dataset.initialised = "true";
   updateTranslate();
 }
 
-window.addEventListener('carouselReady', initCarousel);
+document.addEventListener('DOMContentLoaded', initCarousel);
