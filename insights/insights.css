@@ -1,85 +1,4 @@
-/* ================= GENERAL CAROUSEL STYLES (ALL PAGES) ================= */
-
-.home-carousel {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.home-carousel .carousel-wrapper {
-  width: 80%;
-  overflow: hidden;
-  height: 440px;
-}
-
-.home-carousel .carousel-track {
-  display: flex;
-  gap: 30px;
-  transition: transform 0.4s ease;
-  overflow-x: auto; /* ensures scroll works on desktop */
-  cursor: grab;
-}
-
-.home-carousel .carousel-track:active {
-  cursor: grabbing;
-}
-
-.home-carousel .project-box {
-  flex-shrink: 0;
-  width: 300px;
-  height: 440px;
-  border-radius: 8px;
-  overflow: hidden;
-  background: #f5f5f5;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: pointer;
-}
-
-.home-carousel .project-box:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 12px 20px rgba(0,0,0,0.2);
-}
-
-.home-carousel .project-box img {
-  width: 100%;
-  height: 250px;
-  object-fit: cover;
-}
-
-.home-carousel .project-box h3 {
-  font-size: 18px;
-  margin: 10px;
-  line-height: 1.2;
-}
-
-.home-carousel .project-box p {
-  font-size: 14px;
-  margin: 0 10px 10px 10px;
-  color: #555;
-}
-
-.home-carousel .project-box .card-date {
-  margin-top: 20px;
-  font-size: 13px;
-  color: #09126a;
-}
-
-.home-carousel .project-box a {
-  pointer-events: auto;
-}
-
-.home-carousel .carousel-track.dragging .project-box a {
-  pointer-events: none;
-}
-
-.carousel-arrow {
-  pointer-events: auto;
-  z-index: 10;
-}
-
-/* ================= INSIGHTS PAGE SPECIFIC STYLES ================= */
+/* ================= INSIGHTS PAGE ================= */
 
 .insights-page {
   padding: 0 40px;
@@ -87,83 +6,110 @@
   color: #09126a;
 }
 
+/* Optional page title (currently hidden in HTML) */
 .insights-title {
   font-family: 'Inknut Antiqua', serif;
   font-size: 36px;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   text-align: center;
   font-weight: 700;
-  display: none; /* hide main insights title */
+  display: none;
 }
 
-#article-summary {
-  font-family: 'Inknut Antiqua', Georgia, Times, serif;
-  font-weight: 900;
-  font-style: normal;
-  color: #000000;
-  font-size: 18px;
-  line-height: 1.6;
-  margin-bottom: 30px;
+/* ================= INSIGHTS GRID ================= */
+
+.insights-grid-section {
+  padding: 60px 0;
 }
 
-/* Insights-specific carousel overrides */
-.insights-page .home-carousel {
-  width: 100%;
-  margin-top: 0;
-  flex-direction: column;
-  align-items: center;
+.insights-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
 }
 
-.insights-page .home-carousel .carousel-wrapper {
-  width: 80%;
+/* ================= INSIGHT CARD ================= */
+
+.insight-card {
+  background: #ffffff;
+  border-radius: 12px;
   overflow: hidden;
-  height: 440px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-/* ================= MOBILE STYLES FOR INSIGHTS ================= */
-@media (max-width: 768px) {
+.insight-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+}
 
+.insight-card img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+}
+
+.insight-content {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.insight-category {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #555;
+  margin-bottom: 6px;
+}
+
+.insight-card h3 {
+  font-size: 18px;
+  line-height: 1.3;
+  margin: 0 0 10px;
+}
+
+.insight-card p {
+  font-size: 15px;
+  line-height: 1.5;
+  color: #444;
+  margin-bottom: 16px;
+}
+
+.read-more {
+  margin-top: auto;
+  font-weight: 600;
+  color: #09126a;
+  text-decoration: underline;
+  font-size: 14px;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 900px) {
+  .insights-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
   .insights-page {
     padding: 0 15px;
   }
 
-  .insights-page .home-carousel .carousel-wrapper {
-    width: 100%;
-    height: auto;
-    overflow: hidden;
+  .insights-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
   }
 
-  .insights-page .home-carousel .carousel-track {
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
+  .insight-card h3 {
+    font-size: 17px;
   }
 
-  .insights-page .home-carousel .project-box {
-    scroll-snap-align: start;
-    width: 90vw;
-    max-width: 100%;
-    height: auto;
-  }
-
-  .insights-page .home-carousel .project-box img {
-    width: 100%;
-    height: auto;
-    max-height: 250px;
-    object-fit: cover;
-  }
-
-  .insights-page .home-carousel .project-box h3 {
-    font-size: 18px;
-    margin: 10px;
-  }
-
-  .insights-page .home-carousel .project-box p {
-    font-size: 16px;
-    line-height: 1.5;
-    margin: 10px;
-  }
-
-  .insights-page .carousel-arrow {
-    display: none; /* hide arrows on mobile */
+  .insight-card p {
+    font-size: 15px;
   }
 }
