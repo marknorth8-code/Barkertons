@@ -17,14 +17,12 @@
   flex-direction: column;
   background: #f5f5f5 !important;
   border-radius: 12px;
-   display: -webkit-box;            /* necessary for line clamping */
-  -webkit-line-clamp: 2;           /* number of lines to show */
-  -webkit-box-orient: vertical;
   text-decoration: none;
   color: #09126a;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
   cursor: pointer;
   height: 500px;        /* fixed height for all cards */
+   overflow: hidden; /* ensures card content doesn’t spill */
 }
 
 .insight-card-link:hover {
@@ -59,9 +57,12 @@
   font-weight: 800;
   margin-bottom: 2px;
   line-height: 1.1;
+    display: -webkit-box;
+  -webkit-line-clamp: 2;        /* show 2 lines */
+  -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: nowrap;  /* only one line */
+  white-space: normal;  /* only one line */
 }
 
 /* SUMMARY (3 lines max) */
