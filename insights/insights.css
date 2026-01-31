@@ -22,7 +22,7 @@
   color: #09126a;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
   cursor: pointer;
-  height: 520px;        /* fixed height for all cards */
+  height: 560px;        /* fixed height for all cards */
 }
 
 .insight-card-link:hover {
