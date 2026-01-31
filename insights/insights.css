@@ -42,12 +42,12 @@
   display: flex;
   flex-direction: column;
   height: 100%;
+  justify-content: flex-start; /* don't stretch */
 }
 
 /* Wrap summary+date to allow button pinned */
 .insight-card-link .summary-container {
-  flex-grow: 1; /* takes all available space */
-  display: flex;
+   display: flex;
   flex-direction: column;
 }
 
