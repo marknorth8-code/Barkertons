@@ -12,18 +12,17 @@
 }
 
 /* ================= INSIGHT CARD ================= */
-.insight-card-link .read-more {
-  display: inline-block;          /* keeps it only as wide as content + padding */
-  margin: 12px auto 0;            /* top spacing 12px, auto left/right centers it */
-  padding: 6px 14px;              /* slightly smaller padding */
-  background-color: #09126a;      /* brand blue */
-  color: #ffffff;
-  font-size: 14px;
-  font-weight: 600;
+.insight-card-link {
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
   text-decoration: none;
-  border-radius: 6px;
-  transition: background-color 0.25s ease;
-  text-align: center;             /* ensures text is centered inside the button */
+  color: #09126a;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  cursor: pointer;
+  height: 450px;        /* fixed height for all cards */
 }
 
 .insight-card-link:hover {
@@ -53,44 +52,57 @@
   margin-bottom: 6px;
 }
 
-/* ARTICLE DATE */
-.insight-card-link .insight-date {
-  display: block;
-  margin-top: 12px;
-  color: #09126a;  /* brand blue */
-  font-size: 14px;
-  font-weight: 500;
-}
-
-/* HIDE CARD TITLE */
+/* TITLE */
 .insight-card-link h3 {
-  display: none;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  line-height: 1.2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;  /* only one line */
 }
 
-/* CARD SUMMARY */
+/* SUMMARY (3 lines max) */
 .insight-card-link p {
   font-size: 15px;
   line-height: 1.5;
   color: #444;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;    /* maximum 3 lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ARTICLE DATE */
+.insight-card-link .insight-date {
+  display: block;
+  margin-top: auto;       /* push to bottom if possible */
+  color: #09126a;         /* brand blue */
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 8px;     /* spacing before button */
 }
 
 /* READ MORE BUTTON */
 .insight-card-link .read-more {
   display: inline-block;
-  margin-top: 12px;               /* spacing from date */
-  padding: 8px 16px;
-  background-color: #09126a;      /* brand blue */
+  margin: 0 auto;         /* center horizontally */
+  padding: 6px 14px;      /* slightly smaller than before */
+  background-color: #09126a;  /* brand blue */
   color: #ffffff;
   font-size: 14px;
   font-weight: 600;
   text-decoration: none;
   border-radius: 6px;
   transition: background-color 0.25s ease;
+  text-align: center;
 }
 
 .insight-card-link .read-more:hover {
-  background-color: #101f9c;      /* darker blue on hover */
+  background-color: #101f9c;
 }
 
 /* ================= INSIGHTS GRID SECTION ================= */
