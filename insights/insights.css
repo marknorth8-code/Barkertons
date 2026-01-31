@@ -1,14 +1,17 @@
 /* ================= INSIGHTS PAGE LAYOUT ================= */
 .insights-page {
-  padding: 60px 40px;          /* top/bottom 60px, left/right 40px */
+  padding: 60px 40px;
 }
 
 .insights-grid {
-  max-width: 1200px;           /* prevents cards stretching too wide */
-  margin: 0 auto;              /* centers the grid */
-  gap: 30px;                   /* space between cards */
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
 }
 
+/* ================= INSIGHT CARD ================= */
 .insight-card-link {
   display: flex;
   flex-direction: column;
@@ -47,20 +50,22 @@
   color: #555;
   margin-bottom: 6px;
 }
+
 /* ARTICLE DATE */
 .insight-card-link .insight-date {
   display: block;
-  margin-top: 12px;      /* space between summary and date */
-  color: #09126a;        /* brand blue */
+  margin-top: 12px;
+  color: #09126a;  /* brand blue */
   font-size: 14px;
   font-weight: 500;
 }
 
-/* HIDE INSIGHT TITLES */
+/* HIDE CARD TITLE */
 .insight-card-link h3 {
   display: none;
 }
 
+/* CARD SUMMARY */
 .insight-card-link p {
   font-size: 15px;
   line-height: 1.5;
@@ -68,24 +73,17 @@
   margin-bottom: 16px;
 }
 
+/* READ MORE BUTTON */
 .insight-card-link .read-more {
-  margin-top: auto;
-  font-weight: 600;
-  color: #09126a;
-  text-decoration: underline;
-  font-size: 14px;
-}
-/* ================= READ MORE BUTTON ================= */
-.insight-card-link .read-more {
-  display: inline-block;          /* makes it behave like a button */
+  display: inline-block;
   margin-top: 12px;               /* spacing from date */
-  padding: 8px 16px;              /* vertical and horizontal padding */
+  padding: 8px 16px;
   background-color: #09126a;      /* brand blue */
-  color: #ffffff;                 /* white text */
+  color: #ffffff;
   font-size: 14px;
   font-weight: 600;
-  text-decoration: none;          /* remove underline */
-  border-radius: 6px;             /* rounded corners */
+  text-decoration: none;
+  border-radius: 6px;
   transition: background-color 0.25s ease;
 }
 
@@ -93,20 +91,12 @@
   background-color: #101f9c;      /* darker blue on hover */
 }
 
-/* ================= INSIGHTS GRID ================= */
-
+/* ================= INSIGHTS GRID SECTION ================= */
 .insights-grid-section {
   padding: 60px 0;
 }
 
-.insights-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
-}
-
 /* ================= RESPONSIVE ================= */
-
 @media (max-width: 900px) {
   .insights-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -127,7 +117,8 @@
     font-size: 15px;
   }
 }
+
 /* HIDE MAIN INSIGHTS PAGE TITLE */
 .insights-page .insights-title {
-    display: none !important;
+  display: none !important;
 }
