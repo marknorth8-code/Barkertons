@@ -45,7 +45,7 @@
   <!-- INSIGHTS DATA LOAD -->
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-      fetch('../JS/insights-data.json')
+      fetch('JS/insights-data.json')
         .then(res => res.json())
         .then(data => {
           const grid = document.getElementById("insightsGrid");
