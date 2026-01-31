@@ -207,13 +207,15 @@ nav a {
   background: #0b158a;
   color: #fff;
 }
-/* Desktop carousel: hide native scroll, enable JS transform */
+/* Desktop carousel: ensure all items show, hide native scroll, enable JS transform */
 @media (min-width: 769px) {
   .home-carousel .carousel-track {
-    overflow-x: hidden;
+    width: max-content;   /* ensures track is wide enough for all project boxes */
+    overflow-x: hidden;   /* desktop uses JS translateX, not scroll */
     cursor: default;
   }
 }
+
 
 /* ================= SECTION 5 ================= */
 
@@ -328,7 +330,10 @@ nav a {
 
 /* ================= MOBILE STYLES ================= */
 @media (max-width: 768px) {
-
+ .home-carousel .carousel-track {
+    width: max-content;
+  }
+}
   /* show hamburger on mobile */
   .hamburger {
      position: relative;
