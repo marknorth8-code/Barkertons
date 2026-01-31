@@ -119,81 +119,6 @@ nav a {
   color: #09126a;
 }
 
-/* ================= HOME CAROUSEL ================= */
-.home-carousel {
-  position: relative;
-  padding: 60px 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.home-carousel h3 {
-  font-family: 'Inknut Antiqua', serif;
-  font-size: 30px;
-  color: #09126a;
-  width: 80%;
-  margin-bottom: 40px;
-}
-
-.carousel-wrapper {
-  width: 80%;
-  overflow: hidden;
-  position: relative;
-}
-
-.carousel-track {
-  display: flex;
-  gap: 40px;
-  transition: transform 0.4s ease;
-}
-
-.project-box {
-  flex-shrink: 0;
-  width: 350px;
-  height: 250px;
-  border-radius: 8px;
-  overflow: hidden;
-}
-
-.project-box img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.3s ease;
-}
-
-.project-box:hover img {
-  transform: scale(1.05);
-}
-
-/* Carousel arrows */
-.carousel-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 60px;
-  height: 60px;
-  background: #fff;
-  color: #09126a;
-  border: 1px solid #09126a;
-  border-radius: 50%;
-  font-size: 32px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  z-index: 10;
-}
-
-.carousel-arrow.left { left: 10px; }
-.carousel-arrow.right { right: 10px; }
-
-.carousel-arrow:hover {
-  background: #0b158a;
-  color: #fff;
-}
-
 /* ================= VALUE SECTION ================= */
 .value-section {
   background: #f5f5f5;
@@ -251,6 +176,60 @@ nav a {
 .section-insights a {
   color: #fff;
   text-decoration: underline;
+}
+/* ================= INSIGHTS GRID ================= */
+
+.insights-grid-section {
+  padding: 60px 40px;
+}
+
+.insights-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+/* Insight card */
+.insight-card {
+  background: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.insight-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.insight-content {
+  padding: 20px;
+}
+
+.insight-category {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #555;
+}
+
+.insight-card h3 {
+  margin: 10px 0;
+  font-size: 1.1rem;
+}
+
+.insight-card p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.read-more {
+  margin-top: auto;
+  display: inline-block;
+  font-weight: 600;
+  text-decoration: none;
 }
 
 /* ================= FOOTER ================= */
@@ -348,26 +327,6 @@ nav a {
     height: 320px;
   }
 
-  .carousel-wrapper {
-    width: 95%;
-  }
-
-  .carousel-track {
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    gap: 20px;
-  }
-
-  .project-box {
-    width: 250px;
-    height: 180px;
-    scroll-snap-align: start;
-  }
-
-  .carousel-arrow {
-    display: none;
-  }
-
   .value-grid {
     grid-template-columns: 1fr;
     gap: 40px;
@@ -380,5 +339,15 @@ nav a {
 
   .people-hero h1 {
     font-size: 32px;
+  }
+  @media (max-width: 900px) {
+  .insights-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .insights-grid {
+    grid-template-columns: 1fr;
   }
 }
