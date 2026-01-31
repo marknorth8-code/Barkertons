@@ -221,6 +221,19 @@ nav a {
   margin-bottom: 20px;
 }
 
+/* ================= SECTION 6 ================= */
+.section-partner {
+  padding: 40px 40px;
+  font-size: 20px;
+  color: #555;
+  text-align: center;
+}
+
+.section-partner p {
+  text-align: center;
+  margin: 0 auto;
+}
+
 /* ================= INSIGHTS LINK ================= */
 .section-insights {
   background: #09126a;
