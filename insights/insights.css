@@ -93,3 +93,7 @@
     font-size: 15px;
   }
 }
+/* HIDE MAIN INSIGHTS PAGE TITLE */
+.insights-page .insights-title {
+    display: none !important;
+}
