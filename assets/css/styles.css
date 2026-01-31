@@ -228,7 +228,7 @@ nav a {
   color: #555;
   text-align: center;
   line-height: 1.6;   /* 👈 space between lines */
-  margin-bottom: 36px;   /* 👈 space between paragraphs */
+  margin-bottom: 44px;   /* 👈 space between paragraphs */
 }
 
 .section-partner p {
@@ -237,7 +237,8 @@ nav a {
   }
   .section-partner p strong {
   display: block;          /* lets it behave like a heading */
-  font-size: 28px;         /* 👈 increase title size */
+  font-size: 32px;         /* 👈 increase title size */
+     font-family: 'Inknut Antiqua', serif;
   margin-bottom: 16px;     /* space below the title */
 }
 
