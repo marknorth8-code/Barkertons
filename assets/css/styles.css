@@ -11,6 +11,7 @@ html, body {
 body {
   font-family: 'Bricolage Grotesque', Arial, sans-serif;
   overflow-x: hidden;
+  padding-top: 90px; /* Push content below fixed header */
 }
 
 img {
@@ -64,7 +65,7 @@ nav a {
 
 /* ================= HERO ================= */
 .hero {
-  width: 100vw;
+  width: 100%;
   height: calc(100vh - 90px);
   position: relative;
 }
@@ -97,7 +98,7 @@ nav a {
 .section-images {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  width: 100vw;
+  width: 100%;
 }
 
 .image-box {
@@ -118,6 +119,7 @@ nav a {
   font-size: 30px;
   color: #09126a;
 }
+
 /* ================= HOME CAROUSEL ================= */
 
 .home-carousel {
@@ -136,14 +138,12 @@ nav a {
   margin-bottom: 40px;
 }
 
-/* Viewport */
 .carousel-wrapper {
   width: 80%;
   overflow: hidden;
   position: relative;
 }
 
-/* Track */
 .carousel-track {
   display: flex;
   gap: 40px;
@@ -151,7 +151,6 @@ nav a {
   will-change: transform;
 }
 
-/* Cards */
 .project-box {
   flex-shrink: 0;
   width: 350px;
@@ -167,7 +166,6 @@ nav a {
   display: block;
 }
 
-/* Arrows */
 .carousel-arrow {
   position: absolute;
   top: 50%;
@@ -192,31 +190,6 @@ nav a {
 .carousel-arrow:hover {
   background: #09126a;
   color: #fff;
-}
-
-/* ================= MOBILE ================= */
-
-@media (max-width: 768px) {
-
-  .carousel-wrapper {
-    width: 95%;
-  }
-
-  .carousel-track {
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    gap: 20px;
-  }
-
-  .project-box {
-    width: 250px;
-    height: 180px;
-    scroll-snap-align: start;
-  }
-
-  .carousel-arrow {
-    display: none;
-  }
 }
 
 /* ================= VALUE SECTION ================= */
@@ -247,17 +220,31 @@ nav a {
 }
 
 /* ================= SECTION 6 ================= */
+.about-partner {
+  background: #fff;
+  color: #555;
+  padding: 10px 30px;
+  text-align: center;
+  font-family: 'Bricolage Grotesque', sans-serif;
+}
 
- .about-partner {
-      background: #fff;
-      color: #555;
-      padding: 10px 30px;
-      text-align: center;
-      font-family: 'Bricolage Grotesque', sans-serif;
-    }
-    .about-partner h3 { font-size: 32px; margin-bottom: 30px; }
-    .about-partner p { max-width: 800px; margin: 20px auto; font-size: 18px; line-height: 1.6; }
-    .about-partner a { color: #09126a; font-weight: 600; text-decoration: underline; }
+.about-partner h3 {
+  font-size: 32px;
+  margin-bottom: 30px;
+}
+
+.about-partner p {
+  max-width: 800px;
+  margin: 20px auto;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.about-partner a {
+  color: #09126a;
+  font-weight: 600;
+  text-decoration: underline;
+}
 
 /* ================= INSIGHTS LINK ================= */
 .section-insights {
@@ -277,8 +264,8 @@ nav a {
   color: #fff;
   text-decoration: underline;
 }
-/* ================= INSIGHTS GRID ================= */
 
+/* ================= INSIGHTS GRID ================= */
 .insights-grid-section {
   padding: 60px 40px;
 }
@@ -289,7 +276,6 @@ nav a {
   gap: 30px;
 }
 
-/* Insight card */
 .insight-card {
   background: #ffffff;
   border-radius: 12px;
@@ -301,7 +287,6 @@ nav a {
 .insight-card img {
   width: 100%;
   height: auto;
-  display: block;
 }
 
 .insight-content {
@@ -332,7 +317,6 @@ nav a {
   text-decoration: none;
 }
 
-
 /* ================= FOOTER ================= */
 .footer {
   padding: 40px 20px;
@@ -358,20 +342,6 @@ nav a {
   white-space: nowrap;
 }
 
-
-
-
-
-
-/* ================= TITLES ================= */
-.contact-title {
-  font-family: 'Inknut Antiqua', serif;
-  font-size: 30px;
-  color: #fff;
-  margin-bottom: 25px;
-  text-align: left;
-}
-
 /* ================= PEOPLE PAGE ================= */
 .people-hero {
   height: 420px;
@@ -389,7 +359,14 @@ nav a {
   color: #fff;
 }
 
-/* ================= MOBILE ================= */
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 900px) {
+  .insights-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 @media (max-width: 768px) {
 
   header {
@@ -409,7 +386,7 @@ nav a {
     position: fixed;
     top: 90px;
     left: 0;
-    width: 100vw;
+    width: 100%;
     background: #fff;
     padding: 20px 40px;
     z-index: 999;
@@ -458,15 +435,14 @@ nav a {
   .people-hero h1 {
     font-size: 32px;
   }
-@media (max-width: 900px) {
-  .insights-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
 
-@media (max-width: 768px) {
-  header {
-    padding: 0 20px;
+  .footer-top {
+    flex-direction: column;
+    gap: 20px;
   }
-  /* rest unchanged */
+
+  .footer-right {
+    text-align: left;
+    white-space: normal;
+  }
 }
