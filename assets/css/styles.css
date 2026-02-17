@@ -359,6 +359,9 @@ nav a {
   color: #fff;
 }
 
+.people-network {
+  display: none;
+}
 /* ================= RESPONSIVE ================= */
 
 @media (max-width: 900px) {
