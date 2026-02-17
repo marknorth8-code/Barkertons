@@ -11,7 +11,6 @@ html, body {
 body {
   font-family: 'Bricolage Grotesque', Arial, sans-serif;
   overflow-x: hidden;
-  padding-top: 90px; /* Push content below fixed header */
 }
 
 img {
@@ -66,7 +65,8 @@ nav a {
 /* ================= HERO ================= */
 .hero {
   width: 100%;
-  height: calc(100vh - 90px);
+  height: 100vh;
+  margin-top: 90px;
   position: relative;
 }
 
