@@ -52,6 +52,12 @@ nav a {
   text-decoration: none;
 }
 
+nav a:focus-visible, 
+.carousel-arrow:focus-visible {
+  outline: 3px solid #09126a;
+  outline-offset: 4px;
+}
+
 /* ================= HAMBURGER ================= */
 .hamburger {
   display: none;
